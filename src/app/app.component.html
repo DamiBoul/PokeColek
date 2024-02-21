@@ -1,16 +1,27 @@
 <div class="d-flex" id="wrapper">
   <!-- Sidebar-->
   <app-sidebar></app-sidebar>
-  <!-- Mettre un div avec l'id page-content-wrapper-->
+  <!-- Mettre un div avec l'id page-content-wrapper pour que la page s'adapte à la sidebar-->
   <div id="page-content-wrapper">
       <!-- Top navigation-->
       <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
       <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
+      <app-logo></app-logo>
       <!-- Page content-->
       <div class="container-fluid">
+          <!--Différents id pour les récupérer dans le fichier scripts.js-->
           <h1 id="Nom"></h1>
           <p id="Types"></p>
           <p id="Talents"></p>
+          <img id="Sprite" src="" alt="Sprite de ">
+          
+          <br><br>
+          <p>Devinez le Pokémon !</p>
+          <app-ligne-de-reponse></app-ligne-de-reponse>
+          <br><br>
+          <app-greensquare></app-greensquare>
+          <badge type="spectre"></badge>
+          <badge type="acier"></badge>
       </div>
   </div>
 </div>
@@ -24,17 +35,6 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
-
-
-  <app-logo></app-logo>
-  <br><br>
-  <p>Devinez le Pokémon !</p>
-  <app-ligne-de-reponse></app-ligne-de-reponse>
-  <br><br>
-  <app-greensquare></app-greensquare>
-  <badge type="spectre"></badge>
-  <badge type="acier"></badge>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
