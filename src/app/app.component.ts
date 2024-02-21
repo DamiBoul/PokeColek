@@ -12,6 +12,4 @@ import { BadgeComponent } from './components/badge/badge.component';
 })
 export class AppComponent {
   title = 'Napoleon';
-  spectre="";
-  type = ["acier", "combat", "dragon", "eau", "electrik", "fee", "feu", "glace", "insecte", "normal", "plante", "poison", "psy", "roche", "sol", "spectre", "tenebres", "vol"];
 }
