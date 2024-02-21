@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "p_front": {
+    "dashfront": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/p_front",
+            "outputPath": "dist/dashfront",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -25,11 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", 
-              "src/scripts.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/script.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -65,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "p_front:build:production"
+              "buildTarget": "dashfront:build:production"
             },
             "development": {
-              "buildTarget": "p_front:build:development"
+              "buildTarget": "dashfront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "p_front:build"
+            "buildTarget": "dashfront:build"
           }
         },
         "test": {
@@ -99,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "p-front",
+  "name": "dashfront",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:p_front": "node dist/p_front/server/server.mjs"
+    "serve:ssr:dashfront": "node dist/dashfront/server/server.mjs"
   },
   "private": true,
   "dependencies": {
