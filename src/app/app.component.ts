@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LigneDeReponseModule } from './components/ligne-de-reponse/ligne-de-reponse.module';
 import { BadgeComponent } from '../badge/badge.component';
 
