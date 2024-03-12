@@ -19,30 +19,30 @@
           <p>Devinez le Pokémon !</p>
           <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
           <br><br>
-          <app-greensquare></app-greensquare>
-          <badge type="spectre"></badge>
-          <badge type="acier"></badge>
+          <table>
+            <th>Pokémon </th>
+            <th>Types</th>
+            <th>Génération</th>
+            <th>Stade d'évolution</th>
+            <th>Talents</th>
+            <th>Taille</th>
+            <th>Poids</th>
+        </table>
+        
+
+        <table>
+          <th><app-greensquare couleur="vert" >Dracaufeu</app-greensquare></th>
+          <th><app-greensquare couleur="vert" ><badge type="spectre"></badge><badge type="acier"></badge></app-greensquare></th>
+          <th><app-greensquare couleur="orange">Dracaufeu</app-greensquare></th>
+          <th><app-greensquare couleur="rouge" >Dracaufeu</app-greensquare></th>
+          <th><app-greensquare couleur="vert" >Dracaufeu</app-greensquare></th>
+          <th><app-greensquare couleur="vert" >Dracaufeu</app-greensquare></th>
+          <th><app-greensquare couleur="vert" >Dracaufeu</app-greensquare></th>
+      </table>
+
+          
       </div>
   </div>
 </div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-  
 <router-outlet />
