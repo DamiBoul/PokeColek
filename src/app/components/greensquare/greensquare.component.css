@@ -2,43 +2,48 @@
     display: inline-block;
     border:1px solid #191919;
     color: #191919;
-    height: 100px; /*sets height of element*/
     background: #9fda96; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
-    min-width: 120px;
-    text-align: center;
+    min-height: 120px; /*sets height of element*/
+    width : 100% ;
 }
 
 .red-square {
     display: inline-block;
     border:1px solid #191919;
     color: #191919;
-    height: 100px; /*sets height of element*/
+    min-height: 120px; /*sets height of element*/
     background: #E94B4D; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
-    min-width: 120px;
-    text-align: center;
+    width : 100% ;
+
 }
 
 .orange-square {
     display: inline-block;
     border:1px solid #191919;
     color: #191919;
-    height: 100px; /*sets height of element*/
+    min-height: 120px; /*sets height of element*/
     background: #FF9557; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
-    min-width: 120px;
-    text-align: center;
+    width : 100% ;
 }
 
-img {
-    padding: 15px;
+#pkmn img {
+    padding: 20px;
+    margin-top: -30px;
     max-width: 100%;
+}
+
+#pkmn p {
+    margin-top: 0px;
+    min-width: 120px;
+    text-align: center;
+    
 }
 
 ul {
     color: #191919;
+}
+
+#type .badge {
+    width: 100%;
+    margin-top: -100px;
 }

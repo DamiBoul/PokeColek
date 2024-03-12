@@ -3,14 +3,14 @@
     <div *ngSwitchCase="'pokemon'">
 
         <div [ngSwitch]="couleur">
-            <div *ngSwitchCase="'vert'">
-                <p class= green-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+            <div *ngSwitchCase="'vert'" id="pkmn">
+                <p class= green-square>{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
             </div>
             <div *ngSwitchCase="'orange'">
-                <p class= orange-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+                <p class= orange-square>{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
             </div>
             <div *ngSwitchCase="'rouge'">
-                <p class= red-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+                <p class= red-square >{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
             </div>
             <div *ngSwitchCaseDefault>erreur affichage carré</div>
         </div>   
@@ -20,14 +20,14 @@
     <div *ngSwitchCase="'types'">
 
         <div [ngSwitch]="couleur">
-            <div *ngSwitchCase="'vert'">
-                <p class= green-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+            <div *ngSwitchCase="'vert'" id="type">
+                <p class= green-square><div class="badge"><badge type='{{pokemon.type1}}'></badge><badge type='{{pokemon.type2}}'></badge></div>
             </div>
             <div *ngSwitchCase="'orange'">
-                <p class= orange-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+                <p class= orange-square><badge class="badge" type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
             </div>
             <div *ngSwitchCase="'rouge'">
-                <p class= red-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+                <p class= red-square><badge class="badge" type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
             </div>
             <div *ngSwitchCaseDefault>erreur affichage carré</div>
         </div>   
