@@ -16,6 +16,7 @@ import { Pokemon } from '../pokemon/pokemon.component';
 export class GreensquareComponent implements OnInit {
 
   @Input() couleur: string="";
+  @Input() colonne: string="";
 
   pokemon: Pokemon = null ;
 
