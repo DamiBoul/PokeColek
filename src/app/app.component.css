@@ -145,4 +145,30 @@
     box-sizing: inherit;
     position: relative;
   }
+  .example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  [class^="icon-"], [class*=" icon-"] {
+    font-family: 'brands' !important;
+  }
+  .icon-angular:before {
+    content: "\e900";
+    color: #dd0031;
+  }
+  .icon-facebook:before {
+    content: "\e901";
+    color: #3b5998;
+  }
+  .icon-google:before {
+    content: "\e902";
+    color: #4285f4;
+  }
+  .icon-microsoft:before {
+    content: "\e903";
+    color: #666;
+  }
 

@@ -11,11 +11,15 @@ import { DeuxiemePageComponent } from './deuxieme-page/deuxieme-page.component';
 import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterOutlet } from '@angular/router';
+import { LigneDeReponseModule } from './components/ligne-de-reponse/ligne-de-reponse.module';
+import { BadgeComponent } from './components/badge/badge.component';
 const appRoutes: Routes = [
   {path: '',
-  redirectTo: '/premiere-page',
+  redirectTo: '/app.component',
   pathMatch : 'full'},
-  { path: 'premiere-page', component: PremierePageComponent },
+  { path: 'premiere-page', component: AppComponent },
   { path: 'deuxieme-page', component: DeuxiemePageComponent },
   { path: 'login', component: LoginComponent },
 
@@ -23,7 +27,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
     NavbarComponent,
    PremierePageComponent,
    DeuxiemePageComponent,
@@ -31,13 +34,15 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AppComponent,
     FormsModule,
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
+    RouterOutlet, LigneDeReponseModule, BadgeComponent,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

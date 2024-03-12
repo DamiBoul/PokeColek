@@ -13,4 +13,8 @@ import { BadgeComponent } from './components/badge/badge.component';
 export class AppComponent {
   title = 'routing-app';
   type = ["acier", "combat", "dragon", "eau", "electrik", "fee", "feu", "glace", "insecte", "normal", "plante", "poison", "psy", "roche", "sol", "spectre", "tenebres", "vol"];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 }

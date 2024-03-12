@@ -5,7 +5,9 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-    }).compileComponents();
+      declarations:[AppComponent]
+    })
+    .compileComponents();
   });
 
   it('should create the app', () => {
@@ -13,7 +15,10 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
+  
+  it('should create', () => {
+    expect(AppComponent).toBeTruthy();
+  });
   it(`should have the 'dashfront' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;

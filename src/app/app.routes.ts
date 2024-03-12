@@ -4,9 +4,11 @@ import { PremierePageComponent } from './premiere-page/premiere-page.component';
 import { DeuxiemePageComponent } from './deuxieme-page/deuxieme-page.component';
 import { LoginComponent } from './login/login.component';
 
+import { AppModule } from './app.module';
+
 export const routes: Routes = [
-  { path: '', redirectTo: '/premiere-page', pathMatch: 'full' },
-  { path: 'premiere-page', component: PremierePageComponent },
+  { path: '', redirectTo: '/app.module', pathMatch: 'full' },
+  { path: 'premiere-page', component: AppModule },
   { path: 'deuxieme-page', component: DeuxiemePageComponent },
   { path: 'login', component: LoginComponent },
 

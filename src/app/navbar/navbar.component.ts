@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   navLinks = [
     {
-      label: 'lieux',
+      label: 'jeu',
       icon: 'home',
-      link: 'premiere-page',
+      link: 'app-module',
       index: 0
     },
     {
