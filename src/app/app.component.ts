@@ -14,4 +14,11 @@ export class AppComponent {
   title = 'Napoleon';
   spectre="";
   type = ["acier", "combat", "dragon", "eau", "electrik", "fee", "feu", "glace", "insecte", "normal", "plante", "poison", "psy", "roche", "sol", "spectre", "tenebres", "vol"];
+
+  async search(name: string): Promise<void> {
+    let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name);
+    let pokemon = await response.json();
+
+    document.getElementById('Nom')!.innerHTML = pokemon.name;
+  }
 }
