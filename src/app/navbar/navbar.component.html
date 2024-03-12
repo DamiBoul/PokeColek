@@ -1,0 +1,15 @@
+
+    <nav mat-tab-nav-bar
+    mat-stretch-tabs
+    class="center">
+      <a mat-tab-link
+      *ngFor="let link of navLinks"
+      [routerLink]="link.link"
+      routerLinkActive #rla="routerLinkActive"
+      >
+        <div fxLayout="column" fxLayoutAlign="center center" class="containerNavbar">
+          <span>{{link.label}}</span>
+        </div>
+      </a>
+    </nav>
+  

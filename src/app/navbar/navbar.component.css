@@ -1,0 +1,72 @@
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 100;
+  }
+  
+  .center-spacer{
+    justify-content: center;
+  }
+  
+  .right-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .containerNavbar{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 4px;
+    padding-bottom: 1px;
+  }
+  body {
+    font-family: Roboto, sans-serif;
+  }
+  /* Styles pour la barre de navigation */
+
+/* Styling des onglets */
+.mat-tab-link {
+  color: #333; /* Couleur du texte des onglets */
+  text-transform: uppercase; /* Mettre en majuscules le texte des onglets */
+  font-weight: bold; /* Gras pour le texte des onglets */
+  padding: 10px 20px; /* Espacement interne des onglets */
+  border-bottom: 3px solid transparent; /* Bordure inférieure transparente pour les onglets */
+  transition: border-color 0.3s ease; /* Transition pour la bordure inférieure */
+}
+
+/* Styling des onglets actifs */
+.mat-tab-link.active {
+  border-bottom-color: #0f96c6; /* Couleur de la bordure inférieure pour l'onglet actif */
+}
+
+/* Espacement entre les onglets */
+.mat-tab-link {
+  margin-right: 20px;
+}
+
+/* Centre les onglets dans la barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Couleur de fond de la barre de navigation */
+  padding: 10px 0; /* Espacement interne de la barre de navigation */
+}
+
+/* Ajoutez un peu d'ombre à la barre de navigation */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  .footer-widgets {
+    background: #0f96c6;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+  }
+  .section, .site-footer, .footer-widgets {
+    padding: 3rem 1.5rem;
+  }
+  article, aside, figure, footer, header, hgroup, section {
+    display: block;
+  }
+  * {
+    box-sizing: border-box;
+  }
