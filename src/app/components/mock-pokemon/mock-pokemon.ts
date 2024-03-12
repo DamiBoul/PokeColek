@@ -11,6 +11,6 @@ export const POKEMONS: Pokemon[] = [
         stade: 1,
         taille: 0.5,
         poids: 12,
-        talent: ["overgrowth", "chlorophyll"]
+        talent: ["Engrais", "Chlorophylle"]
     }
 ];
