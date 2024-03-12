@@ -9,9 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './badge.component.scss'
 })
 export class BadgeComponent {
-  constructor() {
-      console.log('badge');
-  }
 
   @Input() type: string="";
 }
