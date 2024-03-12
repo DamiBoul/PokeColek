@@ -1,19 +1,12 @@
-<table>
-    <th>Pokémon </th>
-    <th>Types</th>
-    <th>Génération</th>
-    <th>Stade d'évolution</th>
-    <th>Talents</th>
-    <th>Taille</th>
-    <th>Poids</th>
-</table>
-
-<div class = ligne >
-    <p class = green-square >Dracaufeu</p>
-    <p class = red-square >1ère!!</p>
-    <p class = orange-square >1è!</p>
-    <p class = orange-square >1èn!</p>
-    <p class = green-square >1èrn!</p>
-    <p class = orange-square >1èe!</p>
-    <p class = orange-square >1èren!</p>
+<div [ngSwitch]="couleur">
+    <div *ngSwitchCase="'vert'">
+        <p class= green-square>{{ pokemon.name }}</p>
+    </div>
+    <div *ngSwitchCase="'orange'">
+        <p class= orange-square>{{ pokemon.poids }}</p>
+    </div>
+    <div *ngSwitchCase="'rouge'">
+        <p class= red-square><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+    </div>
+    <div *ngSwitchCaseDefault>erreur affichage carré</div>
 </div>

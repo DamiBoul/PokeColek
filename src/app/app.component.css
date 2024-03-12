@@ -11,3 +11,15 @@ p {
 body {
   background-color: #191919;
 }
+
+table {
+  width : 100% ;
+  color : #FFDF81 ;
+  text-align: center;
+}
+
+th{
+  width : 13% ;
+  min-width: 120px;
+  text-align: center;
+}
