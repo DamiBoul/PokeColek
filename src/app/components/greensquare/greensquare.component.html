@@ -1,19 +1,129 @@
-<table>
-    <th>Pokémon </th>
-    <th>Types</th>
-    <th>Génération</th>
-    <th>Stade d'évolution</th>
-    <th>Talents</th>
-    <th>Taille</th>
-    <th>Poids</th>
-</table>
+<div [ngSwitch]="colonne">
 
-<div class = ligne >
-    <p class = green-square >Dracaufeu</p>
-    <p class = red-square >1ère!!</p>
-    <p class = orange-square >1è!</p>
-    <p class = orange-square >1èn!</p>
-    <p class = green-square >1èrn!</p>
-    <p class = orange-square >1èe!</p>
-    <p class = orange-square >1èren!</p>
+    <div *ngSwitchCase="'pokemon'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'types'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square><badge type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'gen'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square>{{pokemon.gen}}</p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square>{{pokemon.gen}}</p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square>{{pokemon.gen}}</p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'stade'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square>{{pokemon.stade}}</p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square>{{pokemon.stade}}</p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square>{{pokemon.stade}}</p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'talent'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square><ul *ngFor = "let t of pokemon.talent">{{t}}</ul>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square><ul *ngFor = "let t of pokemon.talent">{{t}}</ul>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square><ul *ngFor = "let t of pokemon.talent">{{t}}</ul>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'taille'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square>{{pokemon.taille}}</p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square>{{pokemon.taille}}</p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square>{{pokemon.taille}}</p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCase="'poids'">
+
+        <div [ngSwitch]="couleur">
+            <div *ngSwitchCase="'vert'">
+                <p class= green-square>{{pokemon.poids}}</p>
+            </div>
+            <div *ngSwitchCase="'orange'">
+                <p class= orange-square>{{pokemon.poids}}</p>
+            </div>
+            <div *ngSwitchCase="'rouge'">
+                <p class= red-square>{{pokemon.poids}}</p>
+            </div>
+            <div *ngSwitchCaseDefault>erreur affichage carré</div>
+        </div>   
+
+    </div>
+
+    <div *ngSwitchCaseDefault>erreur affichage colonne</div>
 </div>
+
+
+
+
+
+

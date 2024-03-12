@@ -29,9 +29,14 @@ $types-color: $acier-color, $combat-color, $dragon-color, $eau-color, $electrik-
   }
   .text-#{$type}-emphasis{
     color:#fff
+    text-align center 
   }
   .text-bg-#{$type}{
     color:#fff;
     background-color:RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))
+  }
+
+  .badge {
+    max-width : 100px  
   }
 }

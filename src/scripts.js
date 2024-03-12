@@ -35,7 +35,7 @@ const call = async () => {
     //----------Utilisation du json----------
 
     //Sélection d'un pokemon aléatoire
-    let pokemon = res.results[Math.floor(Math.random() * res.results.length)];
+    var pokemon = res.results[Math.floor(Math.random() * res.results.length)];
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
@@ -46,7 +46,7 @@ const call = async () => {
     let espece = await response.json();
 
     //Variable pour stocker le nom français du pokemon
-    let fr;
+    var fr;
 
     //Recherche du nom français du pokemon parmis toutes les langues
     espece.names.forEach(element =>{
@@ -93,8 +93,36 @@ const call = async () => {
     document.body.querySelector("#Nom").innerHTML = fr;
     document.body.querySelector("#Types").innerHTML = stringTypes;
     document.body.querySelector("#Talents").innerHTML = stringTalents;
-    
+
     //Affectation du src et de la caption de l'image de sprite
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 }
+
+const handle = async() =>{
+
+    let rep = document.body.getElementById("reponse");
+
+    let response = await fetch("https://pokeapi.co/api/v2/"+rep);
+    let poke = await response.json();
+
+    response = await fetch(poke.species.url);
+    let espece = await response.json();
+
+    //Variable pour stocker le nom français du pokemon
+    var fr;
+
+    //Recherche du nom français du pokemon parmis toutes les langues
+    espece.names.forEach(element =>{
+        if(element.language.name == "fr")
+            fr = element.name;
+    });
+
+    sprite.src = poke.sprites.front_default;
+    sprite.alt = sprite.alt.concat(fr);    
+}
+
+
+
+
+
