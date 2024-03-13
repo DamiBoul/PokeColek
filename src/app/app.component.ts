@@ -12,5 +12,6 @@ import { BadgeComponent } from './components/badge/badge.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'dashfront';
+
+  title = 'Napoleon';
 }
