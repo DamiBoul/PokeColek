@@ -1,0 +1,44 @@
+.green-square {
+    display: inline-block;
+    border:1px solid #191919;
+    color: #191919;
+    height: 100px; /*sets height of element*/
+    background: #9fda96; /*sets the background of this element (here a solid colour)*/
+    line-height: 50px; /*for this, it sets vertical alignment*/
+    width : 14% ;
+    min-width: 120px;
+    text-align: center;
+}
+
+.red-square {
+    display: inline-block;
+    border:1px solid #191919;
+    color: #191919;
+    height: 100px; /*sets height of element*/
+    background: #E94B4D; /*sets the background of this element (here a solid colour)*/
+    line-height: 50px; /*for this, it sets vertical alignment*/
+    width : 14% ;
+    min-width: 120px;
+    text-align: center;
+}
+
+.orange-square {
+    display: inline-block;
+    border:1px solid #191919;
+    color: #191919;
+    height: 100px; /*sets height of element*/
+    background: #FF9557; /*sets the background of this element (here a solid colour)*/
+    line-height: 50px; /*for this, it sets vertical alignment*/
+    width : 14% ;
+    min-width: 120px;
+    text-align: center;
+}
+
+img {
+    padding: 15px;
+    max-width: 100%;
+}
+
+ul {
+    color: #191919;
+}

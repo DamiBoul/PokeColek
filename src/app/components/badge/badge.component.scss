@@ -1,0 +1,42 @@
+$acier-color: #b7b7ce;
+$combat-color: #c22e28;
+$dragon-color: #6f35fc;
+$eau-color: #6390f0;
+$electrik-color: #f7d02c;
+$fee-color: #d685ad;
+$feu-color: #ee8130;
+$glace-color: #96d9d6;
+$insecte-color: #a6b91a;
+$normal-color: #a8a77a;
+$plante-color: #7a7c4c;
+$poison-color: #a33ea1;
+$psy-color: #f95587;
+$roche-color: #b6a136;
+$sol-color: #e2bf65;
+$spectre-color: #735797;
+$tenebres-color: #705746;
+$vol-color: #a98ff3;
+
+$types: acier, combat, dragon, eau, electrik, fee, feu, glace, insecte, normal, plante, poison, psy, roche, sol, spectre, tenebres, vol;
+$types-color: $acier-color, $combat-color, $dragon-color, $eau-color, $electrik-color, $fee-color, $feu-color, $glace-color, $insecte-color, $normal-color, $plante-color, $poison-color, $psy-color, $roche-color, $sol-color, $spectre-color, $tenebres-color, $vol-color;
+
+@each $type, $color in zip($types, $types-color){
+  .bg-#{$type}-subtle{
+    background-color:$color
+  }
+  .border-#{$type}-subtle{
+    border-color:$color
+  }
+  .text-#{$type}-emphasis{
+    color:#fff
+    text-align center 
+  }
+  .text-bg-#{$type}{
+    color:#fff;
+    background-color:RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))
+  }
+
+  .badge {
+    max-width : 100px  
+  }
+}
