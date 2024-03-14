@@ -24,11 +24,65 @@ export class AppComponent {
     let pokemon = await response.json(); // variable.json() met la requete au format json
 
     //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = pokemon.name;
+    this.poke_caracteristics(pokemon);
+  }
 
-    let p = new Pokemon();
-    p.name = pokemon.name;
+  async poke_caracteristics(poke: any): Promise<void>{
+    let response = await fetch(poke.species.url);
+    let espece = await response.json();
 
-    POKEMONS.push(p);
+    let pokemon = new Pokemon();
+    
+    //Recherche du nom français du pokemon parmis toutes les langues
+    espece.names.forEach(function(element: any) {
+      if(element.language.name == "fr")
+          pokemon.name = element.name;
+    });
+
+    pokemon.taille = poke.height * 10;
+    pokemon.poids = poke.weight / 10;
+
+    response = await fetch(poke.types[0]);
+    let type = await response.json();
+
+    type.names.forEach(function(element: any) {
+      if(element.language.name == 'fr'){
+        pokemon.type1 = element.name;
+      }
+    });
+
+    if(poke.types.length == 2){
+      response = await fetch(poke.types[1]);
+      type = await response.json();
+
+      type.names.forEach(function(element: any) {
+        if(element.language.name == 'fr'){
+          pokemon.type2 = element.name;
+        }
+      });
+    }
+
+    pokemon.image = poke.sprites.front_default;
+
+    pokemon.id = poke.id;
+
+    response = await fetch(espece.generation.url);
+    let generation = await response.json();
+
+    pokemon.gen = generation.id;
+
+    let talent;
+
+    for(let a of poke.abilities){
+      response = await fetch(a.ability.url);
+      talent = await response.json();
+
+      talent.names.forEach(function(element: any) {
+        if(element.language.name == 'fr')
+          pokemon.talent.push(element.name);
+      });
+    }
+
+    POKEMONS.push(pokemon);
   }
 }
