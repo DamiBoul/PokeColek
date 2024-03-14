@@ -14,10 +14,10 @@
           <p id="Types"></p>
           <p id="Talents"></p>
           <img id="Sprite" src="" alt="Sprite de ">
-          
+
           <br><br>
           <p>Devinez le Pokémon !</p>
-          <app-ligne-de-reponse></app-ligne-de-reponse>
+          <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
           <br><br>
           <table>
             <th>Pokémon </th>
@@ -28,7 +28,7 @@
             <th>Taille</th>
             <th>Poids</th>
         </table>
-        
+
 
         <table>
           <th><app-greensquare couleur="vert" colonne="pokemon"></app-greensquare></th>
@@ -40,7 +40,7 @@
           <th><app-greensquare couleur="vert" colonne="poids"></app-greensquare></th>
       </table>
 
-          
+
       </div>
   </div>
 </div>
