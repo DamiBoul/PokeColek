@@ -1,35 +1,35 @@
-.green-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    background: #9fda96; /*sets the background of this element (here a solid colour)*/
-    min-height: 120px; /*sets height of element*/
+table {
     width : 100% ;
+    color : #191919 ;
+    text-align: center;
+    background-color: #E94B4D;
+  }
+  
+th{
+    width : 13% ;
+    min-width: 120px;
+    height: 120px;
+    text-align: center;
+    border : 1px solid #191919 ;
+    text-align: center;
+	vertical-align: center;
+}
+
+.green-square {
+    background-color: #9fda96;
 }
 
 .red-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    min-height: 120px; /*sets height of element*/
-    background: #E94B4D; /*sets the background of this element (here a solid colour)*/
-    width : 100% ;
+    background: #E94B4D; 
 
 }
 
 .orange-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    min-height: 120px; /*sets height of element*/
     background: #FF9557; /*sets the background of this element (here a solid colour)*/
-    width : 100% ;
 }
 
-#pkmn img {
-    padding: 20px;
-    margin-top: -30px;
-    max-width: 100%;
+th img{
+    max-height: 90px;
 }
 
 #pkmn p {
@@ -41,9 +41,6 @@
 
 ul {
     color: #191919;
-}
-
-#type .badge {
-    width: 100%;
-    margin-top: -100px;
+    margin: auto;
+    margin-left: -30px;
 }

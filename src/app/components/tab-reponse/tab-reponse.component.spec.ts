@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LigneDeReponseComponent } from './ligne-de-reponse.component';
+import { TabReponseComponent } from './tab-reponse.component';
 
-describe('LigneDeReponseComponent', () => {
-  let component: LigneDeReponseComponent;
-  let fixture: ComponentFixture<LigneDeReponseComponent>;
+describe('TabReponseComponent', () => {
+  let component: TabReponseComponent;
+  let fixture: ComponentFixture<TabReponseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LigneDeReponseComponent]
+      imports: [TabReponseComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LigneDeReponseComponent);
+    fixture = TestBed.createComponent(TabReponseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

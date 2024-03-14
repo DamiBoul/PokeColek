@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ligne-de-reponse',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './ligne-de-reponse.component.css'
 })
 export class LigneDeReponseComponent {
+  @Output() poke = new EventEmitter<string>();
 
+  searchPoke(value: string){
+    this.poke.emit(value);
+  }
 }
-
