@@ -10,8 +10,12 @@ import { Pokemon } from '../pokemon/pokemon.component';
   templateUrl: './tab-reponse.component.html',
   styleUrl: './tab-reponse.component.css'
 })
-export class TabReponseComponent {
-  @Input() pokemon: string="";
+export class TabReponseComponent implements OnInit{
+  @Input() pokemonid: string;
 
+  id: number = null;
 
+  ngOnInit(): void {
+    this.id = parseInt(this.pokemonid) - 1;
+  }
 }

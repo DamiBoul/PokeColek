@@ -17,11 +17,12 @@ export class GreensquareComponent implements OnInit {
 
   @Input() couleur: string="";
   @Input() colonne: string="";
+  @Input() id: string ;
 
   pokemon: Pokemon = null ;
 
   ngOnInit(): void {
-    this.pokemon = POKEMONS[0] ;
+    this.pokemon = POKEMONS[parseInt(this.id)] ;
   }
 
 
