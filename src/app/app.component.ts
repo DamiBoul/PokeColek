@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LigneDeReponseModule } from './components/ligne-de-reponse/ligne-de-reponse.module';
 import { GreensquareComponent } from './components/greensquare/greensquare.component';
@@ -10,7 +11,7 @@ import { TabReponseComponent } from './components/tab-reponse/tab-reponse.compon
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LigneDeReponseModule, BadgeComponent, GreensquareComponent, TabReponseComponent],
+  imports: [RouterOutlet, CommonModule, LigneDeReponseModule, BadgeComponent, GreensquareComponent, TabReponseComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -29,5 +30,6 @@ export class AppComponent {
     p.name = pokemon.name;
 
     POKEMONS.push(p);
+
   }
 }

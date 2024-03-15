@@ -1,15 +1,13 @@
 <table>
 <div [ngSwitch]="colonne">
 
+        <!--NOM ET IMAGE POKEMON-->
         <div *ngSwitchCase="'pokemon'">
 
             <div [ngSwitch]="couleur">
                 <div *ngSwitchCase="'vert'">
                     <th class= green-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></th>
                 </div> 
-                <div *ngSwitchCase="'orange'">
-                    <th class= orange-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></th>
-                </div>
                 <div *ngSwitchCase="'rouge'">
                     <th class= red-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></th>
                 </div>
@@ -19,6 +17,7 @@
 
         </div> 
 
+        <!--TYPES DU POKEMON-->
         <div *ngSwitchCase="'types'">
 
             <div [ngSwitch]="couleur">
@@ -36,40 +35,54 @@
 
         </div>
 
+        <!--GENERATION -->
         <div *ngSwitchCase="'gen'">
 
             <div [ngSwitch]="couleur">
                 <div *ngSwitchCase="'vert'">
                     <th class= green-square>{{pokemon.gen}}</th>
                 </div>
-                <div *ngSwitchCase="'orange'">
-                    <th class= orange-square>{{pokemon.gen}}</th>
-                </div>
                 <div *ngSwitchCase="'rouge'">
-                    <th class= red-square>{{pokemon.gen}}</th>
+                    <th class= red-square>{{pokemon.gen}}
+                    <div [ngSwitch]="valeurSupInf">
+                        <div *ngSwitchCase="'+'"> 
+                            <p>↑</p>
+                        </div>
+                        <div *ngSwitchCase="'-'"> 
+                            <p>↓</p>
+                        </div>
+                    </div></th>
                 </div>
                 <div *ngSwitchCaseDefault>erreur affichage carré</div>
             </div>   
 
         </div>
 
+        <!--STADE EVOLUTION-->
         <div *ngSwitchCase="'stade'">
 
             <div [ngSwitch]="couleur">
                 <div *ngSwitchCase="'vert'">
                     <th class= green-square>{{pokemon.stade}}</th>
                 </div>
-                <div *ngSwitchCase="'orange'">
-                    <th class= orange-square>{{pokemon.stade}}</th>
-                </div>
                 <div *ngSwitchCase="'rouge'">
-                    <th class= red-square>{{pokemon.stade}}</th>
+                    <th class= red-square>{{pokemon.stade}}
+                    <div [ngSwitch]="valeurSupInf">
+                        <div *ngSwitchCase="'+'"> 
+                            ↑
+                        </div>
+                        <div *ngSwitchCase="'-'"> 
+                            ↓
+                        </div>
+                    </div>
+                    </th>
                 </div>
                 <div *ngSwitchCaseDefault>erreur affichage carré</div>
             </div>   
 
         </div>
  
+        <!--TALENTS-->
         <div *ngSwitchCase="'talent'">
 
             <div [ngSwitch]="couleur">
@@ -87,34 +100,48 @@
 
         </div>
 
+        <!--TAILLE-->
         <div *ngSwitchCase="'taille'">
 
             <div [ngSwitch]="couleur">
                 <div *ngSwitchCase="'vert'">
                     <th class= green-square>{{pokemon.taille}}</th>
                 </div>
-                <div *ngSwitchCase="'orange'">
-                    <th class= orange-square>{{pokemon.taille}}</th>
-                </div>
                 <div *ngSwitchCase="'rouge'">
-                    <th class= red-square>{{pokemon.taille}}</th>
+                    <th class= red-square>{{pokemon.taille}}                    
+                        <div [ngSwitch]="valeurSupInf">
+                            <div *ngSwitchCase="'+'"> 
+                                ↑
+                            </div>
+                            <div *ngSwitchCase="'-'"> 
+                                ↓
+                            </div>
+                    </div>
+                    </th>
                 </div>
                 <div *ngSwitchCaseDefault>erreur affichage carré</div>
             </div>   
 
         </div>
 
+        <!--POIDS-->
         <div *ngSwitchCase="'poids'">
 
             <div [ngSwitch]="couleur">
                 <div *ngSwitchCase="'vert'">
                     <th class= green-square>{{pokemon.poids}}</th>
                 </div>
-                <div *ngSwitchCase="'orange'">
-                    <th class= orange-square>{{pokemon.poids}}</th>
-                </div>
                 <div *ngSwitchCase="'rouge'">
-                    <th class= red-square>{{pokemon.poids}}</th>
+                    <th class= red-square>{{pokemon.poids}}                    
+                        <div [ngSwitch]="valeurSupInf">
+                            <div *ngSwitchCase="'+'"> 
+                                ↑
+                            </div>
+                            <div *ngSwitchCase="'-'"> 
+                                ↓
+                            </div>
+                        </div>
+                    </th>
                 </div>
                 <div *ngSwitchCaseDefault>erreur affichage carré</div>
             </div>   

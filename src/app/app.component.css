@@ -8,7 +8,21 @@ p {
   width : 12em;
 }
 
+.menu table {
+  width : 100% ;
+  text-align: center;
+}
 
+.menu th{
+  min-width: 120px;
+  height: 30px;
+  text-align: center;
+  border : 1px solid #191919 ;
+  text-align: center;
+  vertical-align: center;
+  background-color: #FFDF81;
+  color : #191919 ;
+}
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -62,20 +76,25 @@ p {
     -webkit-overflow-scrolling: touch;
   }
 
-  .btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  .btn{
+    background-color: #FFDF81;
+    color: #191919;
+    border: 1px solid #9fda96;
+  }
 
+  .btn-bd-primary {
+    --bd-violet-bg: #191919;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
     --bs-btn-font-weight: 600;
     --bs-btn-color: var(--bs-white);
     --bs-btn-bg: var(--bd-violet-bg);
     --bs-btn-border-color: var(--bd-violet-bg);
     --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-bg: #191919;
     --bs-btn-hover-border-color: #6528e0;
     --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
     --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-bg: #191919;
     --bs-btn-active-border-color: #5a23c8;
   }
 
@@ -144,6 +163,7 @@ p {
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
+    background-color: #191919;
   }
 
 body {

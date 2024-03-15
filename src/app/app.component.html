@@ -15,26 +15,79 @@
           <p id="Talents"></p>
           <img id="Sprite" src="" alt="Sprite de ">
           
-          <br><br>
-          <p>Devinez le Pokémon !</p>
-          <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-          <br><br>
-          <table>
-            <th>Pokémon </th>
-            <th>Types</th>
-            <th>Génération</th>
-            <th>Stade d'évolution</th>
-            <th>Talents</th>
-            <th>Taille</th>
-            <th>Poids</th>
-        </table>
-        
-
-        <app-tab-reponse pokemonid="2" ></app-tab-reponse>
-
           
+          <table class="menu">
+            <th class="menu">
+                Pokemon
+            </th>
+            <th class="menu">
+                Objet
+            </th>
+            <th class="menu">
+                Capacité
+            </th>
+            <th class="menu">
+                Lieu
+            </th>
+        </table>
+
+          <br><br>
+          <p>Devinez !</p>
+          <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
+
+          <br><br>
+
+
+
+            <!--NOM ET IMAGE POKEMON-->
+                <table>
+                  <th>Pokémon </th>
+                  <th>Types</th>
+                  <th>Génération</th>
+                  <th>Stade d'évolution</th>
+                  <th>Talents</th>
+                  <th>Taille</th>
+                  <th>Poids</th>
+                </table>
+              </div>
+              <!--
+                <table>
+                  <th>Coût </th>
+                  <th>Dégommage</th>
+                  <th>Tenu</th>
+                  <th>Catégorie</th>
+                  <th>Génération/th>
+                </table>
+             
+
+                <table>
+                  <th>Région </th>
+                  <th>Type</th>
+                  <th>Pokémon trouvable</th>
+                  <th>Méthode de rencontre</th>
+                </table>
+            
+
+
+                <table>
+                  <th>Type </th>
+                  <th>Catégorie</th>
+                  <th>Précision</th>
+                  <th>Pouvoir</th>
+                  <th>Concours</th>
+                  <th>Génération</th>
+                  <th>PP</th>
+                  <th>Priorité</th>
+                  <th>Combo/Nb tours</th>
+                </table>-->
+        
+        <app-tab-reponse pokemonid="4" ></app-tab-reponse>
+        <app-tab-reponse pokemonid="2" ></app-tab-reponse>
+        <app-tab-reponse pokemonid="1" ></app-tab-reponse>
+
+        <br><br>
       </div>
   </div>
-</div>
+
 
 <router-outlet />
