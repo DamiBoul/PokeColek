@@ -16,6 +16,7 @@ import { ObjetPageComponent } from './objet-page/objet-page.component';
 import { LieuPageComponent } from './lieu-page/lieu-page.component';
 import { CapPageComponent } from './cap-page/cap-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CollekComponent } from './components/collek/collek.component';
 
 const appRoutes: Routes = [
   {path: '',
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
         LigneDeReponseModule,
         TabReponseComponent,
         GreensquareComponent,
+        CollekComponent
     ]
 })
 export class AppModule { }
