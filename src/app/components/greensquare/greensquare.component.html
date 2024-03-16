@@ -1,25 +1,35 @@
+
+
+<badge class="btype" type='s-froid'></badge>
+<badge class="btype" type='beaute'></badge>
+<badge class="btype" type='grace'></badge>
+<badge class="btype" type='intell'></badge>
+<badge class="btype" type='robust'></badge>
+<badge class="btype" type='statut'></badge>
+<badge class="btype" type='physique'></badge>
+<badge class="btype" type='special'></badge>
 <table>
     <div [ngSwitch]="colonne">
-    
+
             <!--NOM ET IMAGE POKEMON-->
             <div *ngSwitchCase="'pokemon'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></th>
-                    </div> 
+                    </div>
                     <div *ngSwitchCase="'rouge'">
                         <th class= red-square id="pkmn">{{ pokemon.name }}<br><img src='{{ pokemon.image }}' alt="Pokemon"></th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
                 </div>
-    
-    
-            </div> 
-    
+
+
+            </div>
+
             <!--TYPES DU POKEMON-->
             <div *ngSwitchCase="'types'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square><div class="type"><br><badge class="btype" type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></div></th>
@@ -31,13 +41,13 @@
                         <th class= red-square><div class="type"><br><badge class="btype" type='{{pokemon.type1}}'></badge><br><badge type='{{pokemon.type2}}'></badge></div></th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-    
+
             <!--GENERATION -->
             <div *ngSwitchCase="'gen'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square>{{pokemon.gen}}</th>
@@ -45,22 +55,22 @@
                     <div *ngSwitchCase="'rouge'">
                         <th class= red-square>{{pokemon.gen}}
                         <div [ngSwitch]="valeurSupInf">
-                            <div *ngSwitchCase="'+'"> 
+                            <div *ngSwitchCase="'+'">
                                 <p>↑</p>
                             </div>
-                            <div *ngSwitchCase="'-'"> 
+                            <div *ngSwitchCase="'-'">
                                 <p>↓</p>
                             </div>
                         </div></th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-    
+
             <!--STADE EVOLUTION-->
             <div *ngSwitchCase="'stade'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square>{{pokemon.stade}}</th>
@@ -68,23 +78,23 @@
                     <div *ngSwitchCase="'rouge'">
                         <th class= red-square>{{pokemon.stade}}
                         <div [ngSwitch]="valeurSupInf">
-                            <div *ngSwitchCase="'+'"> 
+                            <div *ngSwitchCase="'+'">
                                 ↑
                             </div>
-                            <div *ngSwitchCase="'-'"> 
+                            <div *ngSwitchCase="'-'">
                                 ↓
                             </div>
                         </div>
                         </th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-     
+
             <!--TALENTS-->
             <div *ngSwitchCase="'talent'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square><ul *ngFor = "let t of pokemon.talent">{{t}}</ul></th>
@@ -96,64 +106,63 @@
                         <th class= red-square><ul *ngFor = "let t of pokemon.talent">{{t}}</ul></th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-    
+
             <!--TAILLE-->
             <div *ngSwitchCase="'taille'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square>{{pokemon.taille}}</th>
                     </div>
                     <div *ngSwitchCase="'rouge'">
-                        <th class= red-square>{{pokemon.taille}}                    
+                        <th class= red-square>{{pokemon.taille}}
                             <div [ngSwitch]="valeurSupInf">
-                                <div *ngSwitchCase="'+'"> 
+                                <div *ngSwitchCase="'+'">
                                     ↑
                                 </div>
-                                <div *ngSwitchCase="'-'"> 
+                                <div *ngSwitchCase="'-'">
                                     ↓
                                 </div>
                         </div>
                         </th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-    
+
             <!--POIDS-->
             <div *ngSwitchCase="'poids'">
-    
+
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
                         <th class= green-square>{{pokemon.poids}}</th>
                     </div>
                     <div *ngSwitchCase="'rouge'">
-                        <th class= red-square>{{pokemon.poids}}                    
+                        <th class= red-square>{{pokemon.poids}}
                             <div [ngSwitch]="valeurSupInf">
-                                <div *ngSwitchCase="'+'"> 
+                                <div *ngSwitchCase="'+'">
                                     ↑
                                 </div>
-                                <div *ngSwitchCase="'-'"> 
+                                <div *ngSwitchCase="'-'">
                                     ↓
                                 </div>
                             </div>
                         </th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
-                </div>   
-    
+                </div>
+
             </div>
-    
+
         <div *ngSwitchCaseDefault>erreur affichage colonne</div>
     </div>
-    
-    
+
+
     </table>
-    
-    
-    
-    
+
+
+

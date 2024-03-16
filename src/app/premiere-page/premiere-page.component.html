@@ -4,18 +4,23 @@
   <!-- Mettre un div avec l'id page-content-wrapper pour que la page s'adapte à la sidebar-->
   <div id="page-content-wrapper">
       <!-- Top navigation-->
-      
+
       <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
       <app-logo></app-logo>
       <!-- Page content-->
       <div class="container-fluid">
+        <!--Différents id pour les récupérer dans le fichier scripts.js-->
+        <h1 id="Nom"></h1>
+        <p id="Types"></p>
+        <p id="Talents"></p>
+        <img id="Sprite" src="" alt="Sprite de ">
           <app-sidebar></app-sidebar>
 
           <br><br>
           <p>Devinez le Pokémon !</p>
           <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
           <br><br>
-  
+
           <table>
             <th>Pokémon </th>
             <th>Types</th>
@@ -25,13 +30,13 @@
             <th>Taille</th>
             <th>Poids</th>
         </table>
-        
+
 
         <app-tab-reponse pokemonid="4" ></app-tab-reponse>
         <app-tab-reponse pokemonid="2" ></app-tab-reponse>
         <app-tab-reponse pokemonid="1" ></app-tab-reponse>
 
-          
+
       </div>
   </div>
 </div>
