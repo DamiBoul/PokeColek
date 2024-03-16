@@ -13,7 +13,7 @@ export class Lieu {
   id!: number;
   name!: string;
   region!: string;
-  gen!: number;
+  type!: string;
   pokemon!: Array<Pokemon>;
   encounter!: Array<string>;
 
