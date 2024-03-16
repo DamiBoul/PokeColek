@@ -1,16 +1,27 @@
-<li *ngFor="let elem of userCollek">
-    <div [ngSwitch]="'{{elem.cat}}'">
-        <div *ngSwitchCase="1">
+<div class="wrapper">
+    <div *ngFor="let elem of userCollek, index as i">
+        
+            <div [ngSwitch]="elem.cat">
             
-        </div>    
-        <div *ngSwitchCase="2">
-            
-        </div>    
-        <div *ngSwitchCase="3">
-            
-        </div>    
-        <div *ngSwitchCase="4">
-            
-        </div>    
+            <div *ngSwitchCase="'pokemon'">
+                Ceci est un pokémon : {{elem.name}}
+            </div>
+
+            <div *ngSwitchCase="'objet'">
+                Ceci est un objet : {{elem.name}}
+            </div>    
+
+            <div *ngSwitchCase="'capacite'">
+Ceci est une capacité : {{elem.name}}
+            </div>
+
+            <div *ngSwitchCase="'lieu'">
+               Ceci est un lieu : {{elem.name}}
+            </div>    
+
+            <div *ngSwitchDefault="">
+                Ceci n'est rien du tout : {{elem.name}}
+            </div>
+        </div>
     </div>
-</li>
+</div>

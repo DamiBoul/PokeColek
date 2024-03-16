@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../pokemon/pokemon.component';
+import { ElementCollek } from '../element-collek/element-collek.component';
 
 @Component({
   selector: 'app-lieu',
@@ -8,10 +9,10 @@ import { Pokemon } from '../pokemon/pokemon.component';
   templateUrl: '../pokemon/pokemon.component.css',
   styleUrl: '../pokemon/pokemon.component.css'
 })
-export class Lieu {
+export class Lieu extends ElementCollek {
 
-  id!: number;
-  name!: string;
+  idLieu!: number;
+  override cat = "lieu";
   region!: string;
   type!: string;
   pokemon!: Array<Pokemon>;

@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-element-collek',
+  selector: 'element-collek',
   standalone: true,
   imports: [],
   templateUrl: './element-collek.component.html',
   styleUrl: './element-collek.component.css'
 })
 export class ElementCollek {
-  id!: Number; //numéro d'identification du collectionnable
-  cat!: Number; /**indique à quelle catégorie l'objet appartient (
-                                                                  1 - Pokémon
-                                                                  2 - Objet
-                                                                  3 - Capacité
-                                                                  4 - Lieu
-                                                                  ) 
-    */
+  id!: number; //numéro d'identification du collectionnable
+  cat!: string; //indique à quelle catégorie l'objet appartient (pokemon, objet, capacite, lieu) 
+  name!: string;
 }

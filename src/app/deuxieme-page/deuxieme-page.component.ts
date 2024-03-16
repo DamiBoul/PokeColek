@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+
 @Component({
   selector: 'app-deuxieme-page',
   templateUrl: './deuxieme-page.component.html',

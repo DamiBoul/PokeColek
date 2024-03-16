@@ -5,7 +5,9 @@ import { POKEMONS } from './mock-pokemon'
 export const LIEUX: Lieu[] = [
     {
 
-        id: 1,
+        id: 13,
+        idLieu: 1,
+        cat: "lieu",
         name: "Joliberges",
         region: "Sinnoh",
         type: "city",
@@ -13,7 +15,9 @@ export const LIEUX: Lieu[] = [
         encounter: ["old-rod", "grass"]
     },
     {
-        id: 2,
+        id: 14,
+        idLieu: 2,
+        cat: "lieu",
         name: "Vestigion",
         region: "Sinnoh",
         type: "city",
@@ -21,7 +25,9 @@ export const LIEUX: Lieu[] = [
         encounter: ["grass"]
     },
     {
-        id: 3,
+        id: 15,
+        idLieu: 3,
+        cat: "lieu",
         name: "Verchamps",
         region: "Sinnoh",
         type: "city",
@@ -29,7 +35,9 @@ export const LIEUX: Lieu[] = [
         encounter: ["old-rod", "grass"]
     },
     {
-        id: 4,
+        id: 16,
+        idLieu: 4,
+        cat: "lieu",
         name: "Rivamar",
         region: "Sinnoh",
         type: "city",

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElementCollek } from '../element-collek/element-collek.component';
 
 @Component({
   selector: 'app-objet',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: './objet.component.html',
   styleUrl: './objet.component.css'
 })
-export class Objet {
-  id!: number;
-  name!: string;
+export class Objet extends ElementCollek {
+  override cat = "objet";
+  idObj!: number;
   image!: string;
   cost!: number ;
   flingpower !: number ;
