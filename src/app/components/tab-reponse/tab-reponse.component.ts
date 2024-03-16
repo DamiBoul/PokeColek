@@ -52,6 +52,62 @@ export class TabReponseComponent implements OnInit{
     return "rouge" ;
   }
 
+  couleurRegionL(value:string){
+    if (value == this.toFindL.region) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+  
+  couleurTypeL(value:string){
+    if (value == this.toFindL.type) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+  
+  couleurFindableL(t:Array<Pokemon>){
+    var cpt = 0 ;
+
+    for (var i = 0 ; i < t.length ; i ++ ){
+      //console.log (t[i], this.toFind.talent[i]);
+      if (this.toFindL.pokemon.includes(t[i])){
+        cpt = cpt + 1 ;
+      }
+    }
+    
+    //console.log(i, cpt);
+    if (cpt == i && cpt == this.toFindL.pokemon.length){
+      return "vert";
+    }
+    if (cpt != 0){
+      return "orange" ;
+    }
+
+    return "rouge" ;
+  }
+
+  couleurEncounterL(t:Array<string>){
+    var cpt = 0 ;
+
+    for (var i = 0 ; i < t.length ; i ++ ){
+      //console.log (t[i], this.toFind.talent[i]);
+      if (this.toFindL.encounter.includes(t[i])){
+        cpt = cpt + 1 ;
+      }
+    }
+    
+    //console.log(i, cpt);
+    if (cpt == i && cpt == this.toFindL.pokemon.length){
+      return "vert";
+    }
+    if (cpt != 0){
+      return "orange" ;
+    }
+
+    return "rouge" ;
+  }
+
   
 
 /**************************OBJET ================== */
@@ -224,8 +280,6 @@ export class TabReponseComponent implements OnInit{
   }
 
   couleurTalents (t: Array<string>){
-    t.sort();
-    this.toFind.talent.sort();
     var cpt = 0 ;
 
     for (var i = 0 ; i < t.length ; i ++ ){
@@ -236,7 +290,7 @@ export class TabReponseComponent implements OnInit{
     }
     
     //console.log(i, cpt);
-    if (cpt == i){
+    if (cpt == i && cpt == this.toFind.talent.length){
       return "vert";
     }
     if (cpt != 0){

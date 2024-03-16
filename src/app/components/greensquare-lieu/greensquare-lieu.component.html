@@ -1,0 +1,93 @@
+<table>
+    <div [ngSwitch]="colonne">
+
+            <!--NOM LIEU-->
+            <div *ngSwitchCase="'lieu'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square id="pkmn">{{ lieu.name }}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square id="pkmn">{{ lieu.name }}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+
+            </div>
+
+            <!--REGION LIEU -->
+            <div *ngSwitchCase="'region'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{lieu.region}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{lieu.region}}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--GENERATION -->
+            <div *ngSwitchCase="'type'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{lieu.type}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{lieu.type}}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--POKEMON TROUVABLE-->
+            <div *ngSwitchCase="'findable'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square><ul *ngFor = "let p of lieu.pokemon">{{p.name}}</ul></th>
+                    </div>
+                    <div *ngSwitchCase="'orange'">
+                        <th class= orange-square><ul *ngFor = "let p of lieu.pokemon">{{p.name}}</ul></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square><ul *ngFor = "let p of lieu.pokemon">{{p.name}}</ul></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--MOYEN DE RENCONTRE-->
+            <div *ngSwitchCase="'encounter'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square><ul *ngFor = "let e of lieu.encounter">{{e}}</ul></th>
+                    </div>
+                    <div *ngSwitchCase="'orange'">
+                        <th class= orange-square><ul *ngFor = "let e of lieu.encounter">{{e}}</ul></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square><ul *ngFor = "let e of lieu.encounter">{{e}}</ul></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+        <div *ngSwitchCaseDefault>erreur affichage colonne</div>
+    </div>
+
+
+    </table>
+
+
+
