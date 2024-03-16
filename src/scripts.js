@@ -75,7 +75,7 @@ const call = async () => {
     document.body.querySelector("#Nom").innerHTML = fr;
     document.body.querySelector("#Types").innerHTML = stringTypes;
     document.body.querySelector("#Talents").innerHTML = stringTalents;
-    
+
     //Affectation du src et de la caption de l'image de sprite
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
@@ -139,5 +139,28 @@ async function search(name){
 
     //Affectation du src et de la caption de l'image de sprite
     sprite.src = pokemon.sprites.front_default;
+    sprite.alt = sprite.alt.concat(fr);
+}
+
+const handle = async() =>{
+
+    let rep = document.body.getElementById("reponse");
+
+    let response = await fetch("https://pokeapi.co/api/v2/"+rep);
+    let poke = await response.json();
+
+    response = await fetch(poke.species.url);
+    let espece = await response.json();
+
+    //Variable pour stocker le nom français du pokemon
+    var fr;
+
+    //Recherche du nom français du pokemon parmis toutes les langues
+    espece.names.forEach(element =>{
+        if(element.language.name == "fr")
+            fr = element.name;
+    });
+
+    sprite.src = poke.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 }
