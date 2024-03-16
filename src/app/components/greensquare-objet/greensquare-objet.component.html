@@ -1,0 +1,126 @@
+<table>
+    <div [ngSwitch]="colonne">
+
+            <!--NOM ET IMAGE OBJET-->
+            <div *ngSwitchCase="'objet'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square id="pkmn">{{ obj.name }}<br><img src='{{ obj.image }}' alt="Objet"></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square id="pkmn">{{ obj.name }}<br><img src='{{ obj.image }}' alt="Objet"></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+
+            </div>
+
+            <!--COUT DE L'OBJET -->
+            <div *ngSwitchCase="'cout'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{obj.cost}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{obj.cost}}
+                            <div [ngSwitch]="valeurSupInf">
+                                <div *ngSwitchCase="'+'">
+                                    ↑
+                                </div>
+                                <div *ngSwitchCase="'-'">
+                                    ↓
+                                </div>
+                            </div></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--POUVOIR DE DEGOMMAGE -->
+            <div *ngSwitchCase="'degommage'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{obj.flingpower}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{obj.flingpower}}
+                        <div [ngSwitch]="valeurSupInf">
+                            <div *ngSwitchCase="'+'">
+                                <p>↑</p>
+                            </div>
+                            <div *ngSwitchCase="'-'">
+                                <p>↓</p>
+                            </div>
+                        </div></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--HOLDABLE-->
+            <div *ngSwitchCase="'tenu'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{obj.holdable}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{obj.holdable}}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--CATEGORIE-->
+            <div *ngSwitchCase="'categorie'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{obj.categorie}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{obj.categorie}}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--GENERATION-->
+            <div *ngSwitchCase="'gen'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{obj.gen}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{obj.gen}}
+                            <div [ngSwitch]="valeurSupInf">
+                                <div *ngSwitchCase="'+'">
+                                    ↑
+                                </div>
+                                <div *ngSwitchCase="'-'">
+                                    ↓
+                                </div>
+                            </div>
+                        </th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <div *ngSwitchCaseDefault>erreur affichage colonne</div>
+        </div>
+    
+</table>
+
+
+
