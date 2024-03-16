@@ -11,10 +11,10 @@ import { Pokemon } from '../pokemon/pokemon.component';
   styleUrl: './tab-reponse.component.css'
 })
 export class TabReponseComponent implements OnInit{
-  @Input() pokemonid: string;
+  @Input() pokemonid: string = "";
 
-  submission: Pokemon = null;
-  toFind: Pokemon = null;
+  submission: Pokemon = POKEMONS[0];
+  toFind: Pokemon = POKEMONS[0];
 
   check (){
     console.log("izofihze");
@@ -22,6 +22,7 @@ export class TabReponseComponent implements OnInit{
   
 
   ngOnInit(): void {
+    console.log(this.pokemonid);
     this.submission = POKEMONS[parseInt(this.pokemonid) - 1];
     this.toFind = POKEMONS[0];
   }

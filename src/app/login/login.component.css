@@ -1,0 +1,40 @@
+.card {
+    margin-top: 50px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+  }
+  
+  .input-field {
+    margin-bottom: 20px;
+  }
+  
+  .input-field label {
+    color: #333;
+  }
+  
+  .input-field input[type="text"],
+  .input-field input[type="password"] {
+    border-bottom: 1px solid #333;
+    box-shadow: none;
+  }
+  
+  .input-field input[type="text"]:focus,
+  .input-field input[type="password"]:focus {
+    border-bottom: 1px solid #FFDF81; /* Couleur de mise au point */
+  }
+  
+  .card-action {
+    padding-top: 20px;
+  }
+  
+  .btn {
+    background-color: #FFDF81;
+    color: #333;
+  }
+  
+  .btn:hover {
+    background-color: #FFC107; /* Couleur au survol */
+  }
+  

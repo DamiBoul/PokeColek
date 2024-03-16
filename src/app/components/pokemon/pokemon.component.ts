@@ -9,15 +9,15 @@ import { Component } from '@angular/core';
 })
 export class Pokemon  {
 
-  id: number;
-  name: string;
-  image: string;
-  type1: string;
-  type2: string;
-  gen: number;
-  stade: number;
-  taille: number;
-  poids: number;
-  talent: Array<string>;
+  id!: number;
+  name!: string;
+  image!: string;
+  type1!: string;
+  type2!: string;
+  gen!: number;
+  stade!: number;
+  taille!: number;
+  poids!: number;
+  talent!: Array<string>;
 
 }

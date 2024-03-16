@@ -1,8 +1,7 @@
-<div id="sidebar-wrapper">
-    <div>Menu</div>
-    <div>
-        <a class="list-group-item list-group-item-action p-3" href="../../collection-page/collection-page.component.html">Profil</a>
-        <a class="list-group-item list-group-item-action p-3" href="#!">Collection</a>
-        <a class="list-group-item list-group-item-action p-3" href="#!">Paramètres</a>
-    </div>
-</div>
+<table class="menu">
+    <th class="menu" *ngFor="let link of navLinks">
+        <a [routerLink]="link.link" routerLinkActive #rla="routerLinkActive" (click)="navigate(link.link)">
+          {{ link.label }}
+        </a>
+    </th>
+</table>

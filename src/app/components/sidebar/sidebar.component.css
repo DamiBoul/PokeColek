@@ -1,4 +1,30 @@
-#sidebar-wrapper{
-  background-color: #191919;
-  color: #FFDF81;
+.menu table {
+  width : 100% ;
+  text-align: center;
+}
+
+.menu th{
+  min-width: 120px;
+  height: 30px;
+  text-align: center;
+  border : 1px solid #191919 ;
+  text-align: center;
+  vertical-align: center;
+  background-color: #FFDF81;
+  color : #191919 ;
+}
+
+#actual {
+  background-color: #9fda96;
+}
+
+table {
+  width : 100% ;
+  color : #FFDF81 ;
+  text-align: center;
+}
+
+a {
+  color :#191919 ;
+  text-decoration: unset;
 }

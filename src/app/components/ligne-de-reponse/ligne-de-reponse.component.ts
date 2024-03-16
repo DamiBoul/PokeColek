@@ -15,3 +15,4 @@ export class LigneDeReponseComponent {
     this.poke.emit(value);
   }
 }
+

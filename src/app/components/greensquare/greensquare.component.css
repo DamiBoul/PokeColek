@@ -1,8 +1,7 @@
 table {
     width : 100% ;
     color : #191919 ;
-    text-align: center;
-    background-color: #E94B4D;
+    background-color: #FF9557;
   }
   
 th{
@@ -12,7 +11,7 @@ th{
     text-align: center;
     border : 1px solid #191919 ;
     text-align: center;
-	vertical-align: center;
+	vertical-align: middle;
 }
 
 .green-square {
@@ -44,3 +43,4 @@ ul {
     margin: auto;
     margin-left: -30px;
 }
+
