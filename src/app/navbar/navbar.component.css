@@ -1,0 +1,36 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: -150px; /* Cache initialement la barre de navigation */
+  bottom: 0;
+  width: 200px; /* Largeur de la barre latérale */
+  background-color: #f0f0f0;
+  padding-top: 50px; /* Espace pour le titre ou le logo */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre sur le côté */
+  transition: left 0.3s ease; /* Transition douce pour l'animation */
+  z-index: 1000; /* Assurez-vous que la barre latérale apparaît au-dessus du contenu */
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  padding: 10px 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+}
+
+/* Style pour la barre de navigation dépliée */
+.navbar.expanded {
+  left: 0; /* Affiche la barre de navigation lorsqu'elle est dépliée */
+}

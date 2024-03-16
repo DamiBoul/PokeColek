@@ -1,0 +1,16 @@
+<div *ngIf="settingsService">
+  <h2>Settings</h2>
+  <div>
+    <label>Language:</label>
+    <select [(ngModel)]="settingsService.language" (change)="setLanguage($event)">
+      <option value="fr">French</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <div>
+    <label>Theme:</label>
+    <button (click)="toggleTheme()">Toggle Theme</button>
+    <span *ngIf="settingsService.theme === 'dark'">Dark</span>
+    <span *ngIf="settingsService.theme === 'light'">Light</span>
+  </div>
+</div>

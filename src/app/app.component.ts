@@ -1,31 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LigneDeReponseModule } from './components/ligne-de-reponse/ligne-de-reponse.module';
-import { GreensquareComponent } from './components/greensquare/greensquare.component';
-import { Pokemon } from './components/pokemon/pokemon.component';
-import { POKEMONS } from './components/mock-pokemon/mock-pokemon';
-import { BadgeComponent } from './components/badge/badge.component';
+import { SettingService } from './services/settings-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, LigneDeReponseModule, BadgeComponent, GreensquareComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(public settingService: SettingService, private router: Router) {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+      this.settingService.theme = theme as 'light' | 'dark';
+      this.settingService.setTheme(theme as 'light' | 'dark');
+    }
+    const language = localStorage.getItem('language');
+    if (language) {
+      this.settingService.language = language as 'fr' | 'en';
+    }
+  }
 
-  title = 'Napoleon';
-  async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
-    let pokemon = await response.json(); // variable.json() met la requete au format json
-
-    //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = pokemon.name;
-
-    let p = new Pokemon();
-    p.name = pokemon.name;
-
-    POKEMONS.push(p);
+  navigateTo(route: string) {
+    this.router.navigate([route]);
   }
 }

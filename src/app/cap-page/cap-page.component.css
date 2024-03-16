@@ -1,0 +1,28 @@
+p {
+    margin: 10px; /* Ajout de "px" pour spécifier l'unité */
+    color: var(--gray-700); /* Utilisation de la variable de couleur */
+    margin-left: auto;
+    margin-right: auto;
+    width: 12em;
+  }
+  
+  #page-content-wrapper {
+    background-color: transparent; /* Fond transparent pour chaque page */
+  }
+  
+  body {
+    background-color: transparent; /* Fond transparent pour toutes les pages */
+  }
+  
+  /* Les autres styles restent inchangés */
+  
+  table {
+    width : 100% ;
+    color : #FFDF81 ;
+    text-align: center;
+  }
+  
+  th{
+    min-width: 120px;
+    text-align: center;
+  }

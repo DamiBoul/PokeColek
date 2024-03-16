@@ -1,44 +1,46 @@
-.green-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    height: 100px; /*sets height of element*/
-    background: #9fda96; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
+table {
+    width : 100% ;
+    color : #191919 ;
+    background-color: #FF9557;
+  }
+  
+th{
+    width : 13% ;
     min-width: 120px;
+    height: 120px;
     text-align: center;
+    border : 1px solid #191919 ;
+    text-align: center;
+	vertical-align: middle;
+}
+
+.green-square {
+    background-color: #9fda96;
 }
 
 .red-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    height: 100px; /*sets height of element*/
-    background: #E94B4D; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
-    min-width: 120px;
-    text-align: center;
+    background: #E94B4D; 
+
 }
 
 .orange-square {
-    display: inline-block;
-    border:1px solid #191919;
-    color: #191919;
-    height: 100px; /*sets height of element*/
     background: #FF9557; /*sets the background of this element (here a solid colour)*/
-    line-height: 50px; /*for this, it sets vertical alignment*/
-    width : 14% ;
-    min-width: 120px;
-    text-align: center;
 }
 
-img {
-    padding: 15px;
-    max-width: 100%;
+th img{
+    max-height: 90px;
+}
+
+#pkmn p {
+    margin-top: 0px;
+    min-width: 120px;
+    text-align: center;
+    
 }
 
 ul {
     color: #191919;
+    margin: auto;
+    margin-left: -30px;
 }
+

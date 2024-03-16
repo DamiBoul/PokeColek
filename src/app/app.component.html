@@ -1,48 +1,18 @@
-<div class="d-flex" id="wrapper">
-  <!-- Sidebar-->
-  <app-sidebar></app-sidebar>
-  <!-- Mettre un div avec l'id page-content-wrapper pour que la page s'adapte à la sidebar-->
+<div class="wrapper" [ngClass]="settingService.theme === 'light' ? 'light-theme' : 'dark-theme'">
   <div id="page-content-wrapper">
-      <!-- Top navigation-->
-      <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
-      <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
-      <app-logo></app-logo>
-      <!-- Page content-->
-      <div class="container-fluid">
-          <!--Différents id pour les récupérer dans le fichier scripts.js-->
-          <h1 id="Nom"></h1>
-          <p id="Types"></p>
-          <p id="Talents"></p>
-          <img id="Sprite" src="" alt="Sprite de ">
+    <div class="site-wrapper sidebar">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="container content">
+      <button (click)="navigateTo('login')" class="button">
 
-          <br><br>
-          <p>Devinez le Pokémon !</p>
-          <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-          <br><br>
-          <table>
-            <th>Pokémon </th>
-            <th>Types</th>
-            <th>Génération</th>
-            <th>Stade d'évolution</th>
-            <th>Talents</th>
-            <th>Taille</th>
-            <th>Poids</th>
-        </table>
+      </button>
+      <button (click)="navigateTo('settings-page')" class="button1">
 
-
-        <table>
-          <th><app-greensquare couleur="vert" colonne="pokemon"></app-greensquare></th>
-          <th><app-greensquare couleur="vert" colonne="types"></app-greensquare></th>
-          <th><app-greensquare couleur="orange" colonne="gen"></app-greensquare></th>
-          <th><app-greensquare couleur="rouge" colonne="stade"></app-greensquare></th>
-          <th><app-greensquare couleur="vert" colonne="talent"></app-greensquare></th>
-          <th><app-greensquare couleur="vert" colonne="taille"></app-greensquare></th>
-          <th><app-greensquare couleur="vert" colonne="poids"></app-greensquare></th>
-      </table>
-
-
-      </div>
+      </button>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
   </div>
 </div>
-
-<router-outlet />

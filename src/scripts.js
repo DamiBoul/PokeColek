@@ -7,24 +7,6 @@
 // Scripts
 //
 
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
-
-});
-
 var baseRequest = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10000";
 var sprite = document.getElementById("Sprite");
 
@@ -35,7 +17,7 @@ const call = async () => {
     //----------Utilisation du json----------
 
     //Sélection d'un pokemon aléatoire
-    var pokemon = res.results[Math.floor(Math.random() * res.results.length)];
+    let pokemon = res.results[Math.floor(Math.random() * res.results.length)];
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
@@ -46,7 +28,7 @@ const call = async () => {
     let espece = await response.json();
 
     //Variable pour stocker le nom français du pokemon
-    var fr;
+    let fr;
 
     //Recherche du nom français du pokemon parmis toutes les langues
     espece.names.forEach(element =>{
@@ -93,7 +75,7 @@ const call = async () => {
     document.body.querySelector("#Nom").innerHTML = fr;
     document.body.querySelector("#Types").innerHTML = stringTypes;
     document.body.querySelector("#Talents").innerHTML = stringTalents;
-
+    
     //Affectation du src et de la caption de l'image de sprite
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
