@@ -1,33 +1,138 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GreensquareComponent } from '../greensquare/greensquare.component';
+import { GreensquareObjetComponent } from '../greensquare-objet/greensquare-objet.component';
+import { GreensquareLieuComponent } from '../greensquare-lieu/greensquare-lieu.component';
+import { GreensquareCapComponent } from '../greensquare-cap/greensquare-cap.component';
 import { POKEMONS } from '../mock-pokemon/mock-pokemon';
 import { Pokemon } from '../pokemon/pokemon.component';
+import { OBJETS } from '../mock-pokemon/mock-objet';
+import { Objet } from '../objet/objet.component';
+import { Lieu } from '../lieu/lieu.component';
+import { LIEUX } from '../mock-pokemon/mock-lieu' ;
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tab-reponse',
   standalone: true,
-  imports: [GreensquareComponent],
+  imports: [GreensquareComponent, GreensquareCapComponent, GreensquareLieuComponent, GreensquareObjetComponent, CommonModule],
   templateUrl: './tab-reponse.component.html',
   styleUrl: './tab-reponse.component.css'
 })
 export class TabReponseComponent implements OnInit{
   @Input() pokemonid: string = "";
+  @Input() typedonnees: string ="";
 
   submission: Pokemon = POKEMONS[0];
   toFind: Pokemon = POKEMONS[0];
 
-  check (){
-    console.log("izofihze");
-  }
+  submissionO : Objet = OBJETS[0];
+  toFindO: Objet = OBJETS[0];
+
+  submissionL : Lieu = LIEUX[0];
+  toFindL: Lieu = LIEUX[0];
   
 
   ngOnInit(): void {
-    console.log(this.pokemonid);
     this.submission = POKEMONS[parseInt(this.pokemonid) - 1];
     this.toFind = POKEMONS[0];
+
+    this.submissionO = OBJETS[parseInt(this.pokemonid) - 1];
+    this.toFindO = OBJETS[0];
+
+    this.submissionL = LIEUX[parseInt(this.pokemonid) - 1];
+    this.toFindL = LIEUX[0];
   }
 
+/**************************LIEU =============*/
 
+  couleurNameL(value:string){
+    if (value == this.toFindL.name) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  
+
+/**************************OBJET ================== */
+
+  /*FONCTIONS COMPARANT LES VALEURS NUMERIQUES*/
+
+  compareFlingO(power:number){
+    if (power > this.toFindO.flingpower){
+      return "-" ;
+    }
+    if (power < this.toFindO.flingpower){
+      return "+" ;
+    }
+    return "";
+  }
+
+  compareCostO(cost:number){
+    if (cost > this.toFindO.cost){
+      return "-" ;
+    }
+    if (cost < this.toFindO.cost){
+      return "+" ;
+    }
+    return "";    
+  }
+  
+  compareGenO(cost:number){
+    if (cost > this.toFindO.gen){
+      return "-" ;
+    }
+    if (cost < this.toFindO.gen){
+      return "+" ;
+    }
+    return "";    
+  }
+
+  /* FONCTION COMPARANT LES COULEURS */
+
+  couleurNameO(value:string){
+    if (value == this.toFindO.name) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }    
+  
+  couleurCoutO(value:number){
+    if (value == this.toFindO.cost) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  } 
+
+  couleurFlingO(value:number){
+    if (value == this.toFindO.flingpower) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurTenuO(value:boolean){
+    if (value == this.toFindO.holdable) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurCatO(value:string){
+    if (value == this.toFindO.categorie) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurGenO(value:number){
+    if (value == this.toFindO.gen) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+/**** POKEMON ============================================= */
   /*FONCTIONS COMPARANT LES VALEURS NUMERIQUES*/
 
   compareGen(value: number){
