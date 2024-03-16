@@ -1,0 +1,9 @@
+<table>
+    <th><app-greensquare couleur="{{couleurName(submission.name)}}" colonne="pokemon" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare couleur="{{couleurType(submission.type1, submission.type2)}}" colonne="types" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare valeurSupInf="{{compareGen(submission.gen)}}" couleur="{{couleurGen(submission.gen)}}" colonne="gen" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare valeurSupInf="{{compareStade(submission.stade)}}" couleur="{{couleurStade(submission.stade)}}" colonne="stade" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare couleur="{{couleurTalents(submission.talent)}}" colonne="talent" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare valeurSupInf="{{compareTaille(submission.taille)}}" couleur="{{couleurTaille(submission.taille)}}" colonne="taille" id={{pokemonid}}></app-greensquare></th>
+    <th><app-greensquare valeurSupInf="{{comparePoids(submission.poids)}}" couleur="{{couleurPoids(submission.poids)}}" colonne="poids" id={{pokemonid}}></app-greensquare></th>
+</table>

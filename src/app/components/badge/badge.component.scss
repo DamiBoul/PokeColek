@@ -30,6 +30,7 @@ $types-color: $acier-color, $combat-color, $dragon-color, $eau-color, $electrik-
   .text-#{$type}-emphasis{
     color:#fff
     text-align center 
+    
   }
   .text-bg-#{$type}{
     color:#fff;
@@ -37,6 +38,6 @@ $types-color: $acier-color, $combat-color, $dragon-color, $eau-color, $electrik-
   }
 
   .badge {
-    max-width : 100px  
+    max-width : 100px ;
   }
 }

@@ -1,19 +1,32 @@
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
-    providedIn : 'root'
+  providedIn: 'root'
 })
-
 export class ApiService {
-  REST_API: string = 'https://pokeapi.co/api/v2';
+  private readonly apiUrl = 'https://pokeapi.co/api/v2';
+  private readonly dailyPokemonList: string[] = [
+    'bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', // Ajoutez plus de Pokémon si nécessaire
+    // Assurez-vous que la liste contient une sélection variée de Pokémon
+  ];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  GetPoke(){
-    console.log(this.httpClient.get(`${this.REST_API}`));
-    return this.httpClient.get(`${this.REST_API}`);
+  getPokemonByName(name: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/pokemon/${name}`).pipe(
+      catchError(error => {
+        console.error('Erreur lors de la récupération des données du Pokémon:', error);
+        return of(null);
+      })
+    );
+  }
+
+  getDailyPokemon(): Observable<any> {
+    const randomIndex = Math.floor(Math.random() * this.dailyPokemonList.length);
+    const randomPokemon = this.dailyPokemonList[randomIndex];
+    return this.getPokemonByName(randomPokemon);
   }
 }
