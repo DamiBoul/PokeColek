@@ -38,9 +38,10 @@ export class TabReponseComponent implements OnInit{
 
   submissionC : Cap = CAPS[0];
   toFindC: Cap = CAPS[0];
-  
 
   ngOnInit(): void {
+    //console.log(POKEMONS[parseInt(this.pokemonid) - 1]);
+
     this.submission = POKEMONS[parseInt(this.pokemonid) - 1];
     this.toFind = POKEMONS[0];
 
