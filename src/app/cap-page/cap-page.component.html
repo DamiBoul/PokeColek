@@ -9,12 +9,7 @@
         <app-logo></app-logo>
         <!-- Page content-->
         <div class="container-fluid">
-            <!--Différents id pour les récupérer dans le fichier scripts.js-->
-            <h1 id="Nom"></h1>
-            <p id="Types"></p>
-            <p id="Talents"></p>
-            <img id="Sprite" src="" alt="Sprite de ">
-  
+            <div class="content">
             <app-sidebar></app-sidebar>
   
             <br><br>
@@ -32,8 +27,11 @@
                 <th>Génération</th>
                 <th>PP</th>
             </table>
-            <app-tab-reponse pokemonid="1" ></app-tab-reponse>
+            <app-tab-reponse pokemonid="3" typedonnees="cap" ></app-tab-reponse>
+            <app-tab-reponse pokemonid="4" typedonnees="cap" ></app-tab-reponse>
+            <app-tab-reponse pokemonid="1" typedonnees="cap" ></app-tab-reponse>
             <br><br><br><br><br><br><br><br><br><br><br>
+            </div>
         </div>
     </div>
   </div>

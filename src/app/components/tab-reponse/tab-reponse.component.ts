@@ -9,6 +9,8 @@ import { OBJETS } from '../mock-pokemon/mock-objet';
 import { Objet } from '../objet/objet.component';
 import { Lieu } from '../lieu/lieu.component';
 import { LIEUX } from '../mock-pokemon/mock-lieu' ;
+import { Cap } from '../cap/cap.component';
+import { CAPS } from '../mock-pokemon/mock-cap';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,6 +24,9 @@ export class TabReponseComponent implements OnInit{
   @Input() pokemonid: string = "";
   @Input() typedonnees: string ="";
 
+  /* toFind est la valeur à trouver.
+     submission est la valeur envoyée par le joueur */
+
   submission: Pokemon = POKEMONS[0];
   toFind: Pokemon = POKEMONS[0];
 
@@ -30,6 +35,9 @@ export class TabReponseComponent implements OnInit{
 
   submissionL : Lieu = LIEUX[0];
   toFindL: Lieu = LIEUX[0];
+
+  submissionC : Cap = CAPS[0];
+  toFindC: Cap = CAPS[0];
   
 
   ngOnInit(): void {
@@ -41,8 +49,111 @@ export class TabReponseComponent implements OnInit{
 
     this.submissionL = LIEUX[parseInt(this.pokemonid) - 1];
     this.toFindL = LIEUX[0];
+
+    this.submissionC = CAPS[parseInt(this.pokemonid) - 1];
+    this.toFindC = CAPS[0];
   }
 
+/************************** CAPACITE ================*/
+
+/*Valeur numérique*/
+
+  compareGenC(cost:number){
+    if (cost > this.toFindC.gen){
+      return "-" ;
+    }
+    if (cost < this.toFindC.gen){
+      return "+" ;
+    }
+    return "";    
+  }
+
+  comparePouvoirC(cost:number){
+    if (cost > this.toFindC.pouvoir){
+      return "-" ;
+    }
+    if (cost < this.toFindC.pouvoir){
+      return "+" ;
+    }
+    return "";    
+  }
+
+  comparePPC(cost:number){
+    if (cost > this.toFindC.PP){
+      return "-" ;
+    }
+    if (cost < this.toFindC.PP){
+      return "+" ;
+    }
+    return "";    
+  }
+
+  comparePrecisionC(cost:number){
+    if (cost > this.toFindC.precision){
+      return "-" ;
+    }
+    if (cost < this.toFindC.precision){
+      return "+" ;
+    }
+    return "";    
+  }
+
+/*Couleur*/
+  couleurNameC(value:string){
+    if (value == this.toFindC.name) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurTypeC (t1: string){
+    if (t1 == this.toFindC.type) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurCategC(value:string){
+    if (value == this.toFindC.categorie) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurConcoursC(value:string){
+    if (value == this.toFindC.concours) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurPouvoirC(value:number){
+    if (value == this.toFindC.pouvoir) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurPrecisionC(value:number){
+    if (value == this.toFindC.precision) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurPPC(value:number){
+    if (value == this.toFindC.PP) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
+
+  couleurGenC(value:number){
+    if (value == this.toFindC.gen) {
+      return "vert" ;
+    }
+    return "rouge" ;
+  }
 /**************************LIEU =============*/
 
   couleurNameL(value:string){

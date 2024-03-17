@@ -8,7 +8,7 @@ import { ElementCollek } from '../element-collek/element-collek.component';
   templateUrl: './objet.component.html',
   styleUrl: './objet.component.css'
 })
-export class Objet extends ElementCollek {
+export class Objet extends ElementCollek{
   override cat = "objet";
   idObj!: number;
   cost!: number ;
