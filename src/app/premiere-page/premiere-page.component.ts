@@ -78,7 +78,6 @@ export class PremierePageComponent {
 
     let p = new Pokemon();
     p.name = pokemon.name;
-
     POKEMONS.push(p);
 
     this.listeId.push(String(pokemon.id));

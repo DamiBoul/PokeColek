@@ -14,6 +14,7 @@ import { Pokemon } from '../pokemon/pokemon.component';
 export class CollekComponent {
 
   @Input() idUser: number=-1;
+  @Input() type: String ="";
 
   userCollek!: ElementCollek[];
 
@@ -24,4 +25,5 @@ export class CollekComponent {
   divParX(i: number, x: number): boolean{
     return((i)%x == 0);
   }
+
 }

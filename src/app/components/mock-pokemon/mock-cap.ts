@@ -2,7 +2,10 @@ import { Cap } from "../cap/cap.component";
 
 export const CAPS: Cap[] = [
     {
-        id: 1,
+        idCap: 1,
+        id: 9,
+        image: "",
+        cat: "capacite",
         name: "Écras’Face",
         type: "normal",
         categorie: "physical",
@@ -13,7 +16,10 @@ export const CAPS: Cap[] = [
         PP : 35
     },
     {
-        id: 2,
+        idCap: 2,
+        id: 9,
+        image: "",
+        cat: "capacite",
         name: "Poing Karaté",
         type: "combat",
         categorie: "physical",
@@ -24,7 +30,10 @@ export const CAPS: Cap[] = [
         PP : 25
     },
     {
-        id: 3,
+        idCap: 3,
+        id: 9,
+        image: "",
+        cat: "capacite",
         name: "Torgnoles",
         type: "normal",
         categorie: "physical",
@@ -35,7 +44,10 @@ export const CAPS: Cap[] = [
         PP : 10
     },
     {
-        id: 4,
+        idCap: 4,
+        id: 9,
+        image: "",
+        cat: "capacite",
         name: "Poing Comète",
         type: "normal",
         categorie: "physical",
