@@ -10,16 +10,17 @@ import { NgForm } from '@angular/forms';
   styleUrl: './ligne-de-reponse.component.css'
 })
 export class LigneDeReponseComponent {
-  /**@Output() poke = new EventEmitter<string>();
+  @Output() poke = new EventEmitter<string>();
 
   searchPoke(value: string){
     this.poke.emit(value);
-  }*/
+  }
 
   name = '';
 
   printValue() : void {
     console.log(this.name);
+    this.poke.emit(this.name);
   }
 }
 
