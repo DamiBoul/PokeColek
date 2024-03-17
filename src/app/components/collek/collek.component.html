@@ -4,11 +4,11 @@
             <div [ngSwitch]="elem.cat">
             
             <div *ngSwitchCase="'pokemon'">
-                Ceci est un pokémon : {{elem.name}}
+                Ceci est un pokémon : {{elem.name}} avec son image <img src='{{ elem.image }}' alt="Pokemon">
             </div>
 
             <div *ngSwitchCase="'objet'">
-                Ceci est un objet : {{elem.name}}
+                Ceci est un objet : {{elem.name}} avec son image <img src='{{ elem.image }}' alt="Objet">
             </div>    
 
             <div *ngSwitchCase="'capacite'">

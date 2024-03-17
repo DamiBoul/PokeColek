@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ElementCollek } from '../element-collek/element-collek.component';
 import { ELEMS } from '../mock-pokemon/mock-elem';
+import { Pokemon } from '../pokemon/pokemon.component';
 
 @Component({
   selector: 'collek',
