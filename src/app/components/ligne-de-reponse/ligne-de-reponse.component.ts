@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-ligne-de-reponse',
@@ -9,10 +10,16 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrl: './ligne-de-reponse.component.css'
 })
 export class LigneDeReponseComponent {
-  @Output() poke = new EventEmitter<string>();
+  /**@Output() poke = new EventEmitter<string>();
 
   searchPoke(value: string){
     this.poke.emit(value);
+  }*/
+
+  name = '';
+
+  printValue() : void {
+    console.log(this.name);
   }
 }
 
