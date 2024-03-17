@@ -4,8 +4,9 @@ table {
     background-color: #FF9557;
   }
   
+
 th{
-    width : 13% ;
+    width : 1% ;
     min-width: 120px;
     height: 120px;
     text-align: center;
@@ -43,4 +44,3 @@ ul {
     margin: auto;
     margin-left: -30px;
 }
-

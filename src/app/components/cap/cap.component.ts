@@ -4,9 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-cap',
   standalone: true,
   imports: [],
-  templateUrl: './cap.component.html',
-  styleUrl: './cap.component.css'
+  templateUrl: '../pokemon/pokemon.component.css',
+  styleUrl: '../pokemon/pokemon.component.css'
 })
-export class CapComponent {
-
+export class Cap {
+  id!: number;
+  name!: string ;
+  type!: string;
+  categorie!: string;
+  precision!: number;
+  pouvoir !: number;
+  concours!: string;
+  gen !: number;
+  PP !: number;
 }

@@ -1,1 +1,169 @@
-<p>greensquare-cap works!</p>
+<!--cap type categorie precision pouvoir concours gen PP-->
+<table>
+    <div [ngSwitch]="colonne">
+
+            <!--NOM DE L'ATTAQUE-->
+            <div *ngSwitchCase="'cap'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square id="pkmn">{{ capacite.name }}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square id="pkmn">{{ capacite.name }}</th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+
+            </div>
+
+            <!--TYPES DE L'ATTAQUE -->
+            <div *ngSwitchCase="'type'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square><div class="type"><badge class="btype" type='{{capacite.type}}'></badge></div></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square><div class="type"><badge class="btype" type='{{capacite.type}}'></badge></div></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--CATEGORIE DE L'ATTAQUE -->
+            <div *ngSwitchCase="'categorie'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square><badge class="btype" type='{{capacite.categorie}}'></badge></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square><badge class="btype" type='{{capacite.categorie}}'></badge></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--PRECISION ATTAQUE-->
+            <div *ngSwitchCase="'precision'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{capacite.precision}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{capacite.precision}}
+                        <div [ngSwitch]="valeurSupInf">
+                            <div *ngSwitchCase="'+'">
+                                ↑
+                            </div>
+                            <div *ngSwitchCase="'-'">
+                                ↓
+                            </div>
+                        </div>
+                        </th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--POUVOIR ATTAQUE-->
+            <div *ngSwitchCase="'pouvoir'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{capacite.pouvoir}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{capacite.pouvoir}}
+                        <div [ngSwitch]="valeurSupInf">
+                            <div *ngSwitchCase="'+'">
+                                ↑
+                            </div>
+                            <div *ngSwitchCase="'-'">
+                                ↓
+                            </div>
+                        </div>
+                        </th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--CONCOURS-->
+            <div *ngSwitchCase="'concours'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square><div class="type"><badge class="btype" type='{{capacite.concours}}'></badge></div></th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square><div class="type"><badge class="btype" type='{{capacite.concours}}'></badge></div></th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--GENERATION ATTAQUE-->
+            <div *ngSwitchCase="'gen'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{capacite.gen}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{capacite.gen}}
+                            <div [ngSwitch]="valeurSupInf">
+                                <div *ngSwitchCase="'+'">
+                                    ↑
+                                </div>
+                                <div *ngSwitchCase="'-'">
+                                    ↓
+                                </div>
+                            </div>
+                        </th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+            <!--PP ATTAQUE-->
+            <div *ngSwitchCase="'PP'">
+
+                <div [ngSwitch]="couleur">
+                    <div *ngSwitchCase="'vert'">
+                        <th class= green-square>{{capacite.PP}}</th>
+                    </div>
+                    <div *ngSwitchCase="'rouge'">
+                        <th class= red-square>{{capacite.PP}}
+                            <div [ngSwitch]="valeurSupInf">
+                                <div *ngSwitchCase="'+'">
+                                    ↑
+                                </div>
+                                <div *ngSwitchCase="'-'">
+                                    ↓
+                                </div>
+                            </div>
+                        </th>
+                    </div>
+                    <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                </div>
+
+            </div>
+
+        <div *ngSwitchCaseDefault>erreur affichage colonne</div>
+    </div>
+
+
+    </table>
+
+
+
