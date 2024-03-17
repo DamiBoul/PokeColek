@@ -9,7 +9,8 @@ import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
 })
 export class PremierePageComponent {
 
-  title = 'Napoleon';
+  listeId: Array<String> = [];
+
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
     let pokemon = await response.json(); // variable.json() met la requete au format 
@@ -73,9 +74,14 @@ export class PremierePageComponent {
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 
+
+
     let p = new Pokemon();
     p.name = pokemon.name;
 
     POKEMONS.push(p);
+
+    this.listeId.push(String(pokemon.id));
+    console.log(pokemon.id);
   }
 }
