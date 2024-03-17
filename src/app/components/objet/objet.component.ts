@@ -11,7 +11,6 @@ import { ElementCollek } from '../element-collek/element-collek.component';
 export class Objet extends ElementCollek {
   override cat = "objet";
   idObj!: number;
-  image!: string;
   cost!: number ;
   flingpower !: number ;
   holdable !: boolean ;

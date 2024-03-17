@@ -11,7 +11,6 @@ import { ElementCollek } from '../element-collek/element-collek.component';
 export class Pokemon extends ElementCollek {
   override cat = "pokemon";
   idPok!: number;
-  image!: string;
   type1!: string;
   type2!: string;
   gen!: number;

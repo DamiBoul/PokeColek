@@ -12,4 +12,5 @@ export class ElementCollek {
   id!: number; //numéro d'identification du collectionnable
   cat!: string; //indique à quelle catégorie l'objet appartient (pokemon, objet, capacite, lieu) 
   name!: string;
+  image! :string;
 }

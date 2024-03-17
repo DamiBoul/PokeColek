@@ -77,12 +77,13 @@ const call = async () => {
     document.body.querySelector("#Talents").innerHTML = stringTalents;
 
     //Affectation du src et de la caption de l'image de sprite
+    sprite = document.body.querySelector("#Sprite");
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 }
 
 async function search(name){
-    let response = await fetch("https://pokeapi.co/api/v2/"+name);
+    let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name);
     let pokemon = await response.json();
 
     response = await fetch(pokemon.species.url);
@@ -138,6 +139,7 @@ async function search(name){
     document.body.querySelector("#Talents").innerHTML = stringTalents;
 
     //Affectation du src et de la caption de l'image de sprite
+    sprite = document.body.querySelector("#Sprite");
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 }
