@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElementCollek } from '../element-collek/element-collek.component';
 
 @Component({
   selector: 'app-cap',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: '../pokemon/pokemon.component.css',
   styleUrl: '../pokemon/pokemon.component.css'
 })
-export class Cap {
-  id!: number;
-  name!: string ;
+export class Cap extends ElementCollek {
+  idCap!: number;
+  override cat = "capacite";
   type!: string;
   categorie!: string;
   precision!: number;

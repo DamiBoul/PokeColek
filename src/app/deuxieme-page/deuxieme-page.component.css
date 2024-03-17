@@ -27,3 +27,11 @@
 .guess-button {
   margin-top: 10px;
 }
+
+h1, h2, p{
+  color: #FFDF81;
+}
+
+.content{
+  width:1000px;
+}
