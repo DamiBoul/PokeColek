@@ -33,9 +33,9 @@
         </table>
 
 
-        <app-tab-reponse typedonnees="pkmn" pokemonid="4" ></app-tab-reponse>
-        <app-tab-reponse typedonnees="pkmn" pokemonid="2" ></app-tab-reponse>
-        <app-tab-reponse typedonnees="pkmn" pokemonid="1" ></app-tab-reponse>
+        <div *ngFor="let id of listeId">
+            <app-tab-reponse typedonnees="pkmn" pokemonid={{id}} ></app-tab-reponse>
+        </div>
         <br><br><br><br><br><br><br><br><br>
       </div>
       </div>
