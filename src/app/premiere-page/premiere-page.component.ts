@@ -138,7 +138,6 @@ export class PremierePageComponent {
 
     p.talent = listTalents;
 
-
     POKEMONS.push(p);
 
     //console.log(POKEMONS);
