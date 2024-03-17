@@ -12,10 +12,6 @@ import { NgForm } from '@angular/forms';
 export class LigneDeReponseComponent {
   @Output() poke = new EventEmitter<string>();
 
-  searchPoke(value: string){
-    this.poke.emit(value);
-  }
-
   name = '';
 
   printValue() : void {

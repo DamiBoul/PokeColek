@@ -9,7 +9,6 @@ import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
 })
 export class PremierePageComponent {
 
-  title = 'Napoleon';
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
     let pokemon = await response.json(); // variable.json() met la requete au format 
@@ -63,7 +62,7 @@ export class PremierePageComponent {
     }
 
     //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = pokemon.name;
+    document.getElementById('Nom')!.innerHTML = fr;
     document.getElementById('Types')!.innerHTML = stringTypes;
     document.body.querySelector("#Talents")!.innerHTML = stringTalents;
 
