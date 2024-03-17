@@ -102,7 +102,41 @@ export class PremierePageComponent {
 
     p.gen = generation.id;
 
-    p.stade = 0; //TODO
+    //TODO
+    response = await fetch(espece.evolution_chain.url);
+    let ligneEvo = await response.json();
+
+    var chaineEvo = ligneEvo.chain;
+    
+    p.stade = 0;
+
+    if(chaineEvo.species.name == espece.name){
+      p.stade = 1;
+    }
+    else{
+      var listeEvo = chaineEvo.evolves_to;
+      var listeEvo2: any[] = [];
+      listeEvo.forEach((element: { evolves_to: any; }) =>{
+        listeEvo2.concat(element.evolves_to);
+    });
+
+    console.log(listeEvo2);
+
+      listeEvo.forEach((element: { species: { name: any; }; }) =>{
+        if(element.species.name == espece.name) p.stade = 2;
+    });
+    listeEvo2.forEach((element) =>{
+      console.log(element);
+      if(element.species.name == espece.name) p.stade = 3;
+    });
+
+    }
+
+    if(p.stade == 0){
+      p.stade = 3;
+    }
+
+    //p.stade = 0; //TODO
 
     p.taille = pokemon.height;
     p.poids = pokemon.weight;
@@ -112,11 +146,11 @@ export class PremierePageComponent {
 
     POKEMONS.push(p);
 
-    console.log(POKEMONS);
+    //console.log(POKEMONS);
 
     //mise à jour du tableau
     this.listeId.push(String(POKEMONS.length));
 
-    console.log(this.listeId);
+    //console.log(this.listeId);
   }
 }

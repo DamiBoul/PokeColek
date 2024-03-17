@@ -15,7 +15,7 @@ export class LigneDeReponseComponent {
   name = '';
 
   printValue() : void {
-    console.log(this.name);
+    //console.log(this.name);
     this.poke.emit(this.name);
   }
 }

@@ -2,6 +2,20 @@ import { Pokemon } from "../pokemon/pokemon.component";
 
 export const POKEMONS: Pokemon[] = [
     {
+        id: 499,
+        idPok: 499,
+        cat:"pokemon",
+        name: "Grotichon",
+        image: "https://www.pokepedia.fr/images/thumb/6/69/Grotichon-NB.png/803px-Grotichon-NB.png",
+        type1: "Feu",
+        type2: "Combat",
+        gen: 5,
+        stade: 2,
+        taille: 10,
+        poids: 555,
+        talent: ["Brasier", "Isograisse"]
+    },
+    {
         id: 1,
         idPok: 1,
         cat:"pokemon",
