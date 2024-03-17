@@ -32,6 +32,7 @@ export class PremierePageComponent {
 
     //Variable pour stocker tous les types du pokemon
     var stringTypes = "";
+    var listTypes: Array<string> = [];
 
     //Pour chaque type du pokemon
     for(let a of pokemon.types){
@@ -41,13 +42,16 @@ export class PremierePageComponent {
 
         //Recherche du type en français et concaténation dans la variable de stockage
         yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr")
+            if(element.language.name == "fr"){
                 stringTypes = stringTypes.concat(element.name, " ");
+                listTypes.push(element.name);
+              }
         });
     }
 
     //Variable pour stocker tous les talents du pokemon
     var stringTalents = "";
+    var listTalents: Array<string> = [];
 
     //Pour chaque talent du pokemon
     for(let a of pokemon.abilities){
@@ -59,6 +63,7 @@ export class PremierePageComponent {
         yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
             if(element.language.name == "fr"){
                 stringTalents = stringTalents.concat(element.name, " ");
+                listTalents.push(element.name);
             }
         });
     }
@@ -74,14 +79,44 @@ export class PremierePageComponent {
     sprite.src = pokemon.sprites.front_default;
     sprite.alt = sprite.alt.concat(fr);
 
+    /**
+      stade: 1,
+      talent: ["Engrais", "Chlorophylle"]
+  */
 
-
+    //ajout du pokémon dans la liste pour affichage
     let p = new Pokemon();
-    p.name = pokemon.name;
+    p.id = pokemon.id;
+    p.name = fr;
+    p.image = pokemon.sprites.front_default;
+    p.type1 = listTypes[0];
+    if(listTypes.length>0){
+      p.type2 = listTypes[1];
+    }
+    else{
+      p.type2 = "null";
+    }
+
+    response = await fetch(espece.generation.url);
+    let generation = await response.json();
+
+    p.gen = generation.id;
+
+    p.stade = 0; //TODO
+
+    p.taille = pokemon.height;
+    p.poids = pokemon.weight;
+
+    p.talent = listTalents;
+
 
     POKEMONS.push(p);
 
-    this.listeId.push(String(pokemon.id));
-    console.log(pokemon.id);
+    console.log(POKEMONS);
+
+    //mise à jour du tableau
+    this.listeId.push(String(POKEMONS.length));
+
+    console.log(this.listeId);
   }
 }
