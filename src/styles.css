@@ -1,0 +1,25 @@
+/* Styles globaux */
+:root {
+  --light-body-background-color: #EBE6DA;
+  --light-text-color: #191919;
+
+  --dark-body-background-color: #191919;
+  --dark-text-color: #EBE6DA;
+}
+
+/* Autres styles globaux */
+body {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+  padding-left: 100px;
+}
+
+.light-theme {
+  --body-background-color: var(--light-body-background-color);
+  --text-color: var(--light-text-color);
+}
+
+.dark-theme {
+  --body-background-color: var(--dark-body-background-color);
+  --text-color: var(--dark-text-color);
+}

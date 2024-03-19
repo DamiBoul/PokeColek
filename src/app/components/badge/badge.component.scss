@@ -1,0 +1,118 @@
+$acier-color: #b7b7ce;
+$combat-color: #c22e28;
+$dragon-color: #6f35fc;
+$eau-color: #6390f0;
+$electrik-color: #f7d02c;
+$fee-color: #d685ad;
+$feu-color: #ee8130;
+$glace-color: #96d9d6;
+$insecte-color: #a6b91a;
+$normal-color: #a8a77a;
+$plante-color: #7a7c4c;
+$poison-color: #a33ea1;
+$psy-color: #f95587;
+$roche-color: #b6a136;
+$sol-color: #e2bf65;
+$spectre-color: #735797;
+$tenebres-color: #705746;
+$vol-color: #a98ff3;
+
+$s-froid-color: #CD5645;
+$beaute-color: #50B3DC;
+$grace-color: #E96D8E;
+$intell-color: #9BCE13;
+$robust-color: #E5B23B;
+
+$physique-color: #EF6845;
+$special-color: #61ADF3;
+$statut-color: #96999A;
+
+$types: acier, combat, dragon, eau, electrik, fee, feu, glace, insecte, normal, plante, poison, psy, roche, sol, spectre, tenebres, vol;
+$types-color: $acier-color, $combat-color, $dragon-color, $eau-color, $electrik-color, $fee-color, $feu-color, $glace-color, $insecte-color, $normal-color, $plante-color, $poison-color, $psy-color, $roche-color, $sol-color, $spectre-color, $tenebres-color, $vol-color;
+
+$conds: s-froid, beaute, grace, intell, robust;
+$conds-color: $s-froid-color, $beaute-color, $grace-color, $intell-color, $robust-color;
+
+$atks: physique, special, statut;
+$atks-color: $physique-color, $special-color, $statut-color;
+
+@each $type, $color in zip($types, $types-color){
+  .bg-#{$type}-subtle{
+    background-color:$color
+  }
+  .border-#{$type}-subtle{
+    border-color:$color
+  }
+  .text-#{$type}-emphasis{
+    color:#fff
+    text-align center;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+  }
+  .text-bg-#{$type}{
+    color:#fff;
+    background-color:RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))
+  }
+
+  .badge {
+    max-width : 100px ;
+  }
+}
+
+@each $type, $color in zip($conds, $conds-color){
+  .bg-#{$type}-subtle{
+    background-color:$color
+  }
+  .border-#{$type}-subtle{
+    border-color:$color
+  }
+  .text-#{$type}-emphasis{
+    color:#fff;
+    text-align: center;
+    font-size: 14px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+
+  }
+  .text-bg-#{$type}{
+    color:#fff;
+    background-color:RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))
+  }
+
+  .badge {
+    max-width : 100px ;
+  }
+}
+
+.body{
+  text-align: center;
+}
+
+@each $type, $color in zip($atks, $atks-color){
+  .bg-#{$type}-subtle{
+    background-color:$color
+  }
+  .border-#{$type}-subtle{
+    border-color:$color
+  }
+  .text-#{$type}-emphasis{
+    color:#fff;
+    text-align: center;
+    font-size: 14px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+
+  }
+  .text-bg-#{$type}{
+    color:#fff;
+    background-color:RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))
+  }
+
+  .badge {
+    max-width : 100px ;
+  }
+}
+
+.body{
+  text-align: center;
+}

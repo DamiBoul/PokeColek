@@ -1,0 +1,43 @@
+
+<div [ngSwitch]="type">
+    <div *ngSwitchCase="'pokemon'">
+        <div class="grid-container">
+            <div *ngFor="let elem of userCollek">
+                <div *ngIf="elem.cat === 'pokemon'">
+                    <div class="grid-item">{{elem.name}}<br><img src="{{ elem.image }}" alt="{{elem.name}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'objet'">
+        <div class="grid-container">
+            <div *ngFor="let elem of userCollek">
+                <div *ngIf="elem.cat === 'objet'">
+                    <div class="grid-item">{{elem.name}}<br><img src="{{ elem.image }}" alt="{{elem.name}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'capacite'">
+        <div class="grid-container">
+            <div *ngFor="let elem of userCollek">
+                <div *ngIf="elem.cat === 'capacite'">
+                    <div class="grid-item">{{elem.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'lieu'">
+        <div class="grid-container">
+            <div *ngFor="let elem of userCollek">
+                <div *ngIf="elem.cat === 'lieu'">
+                    <div class="grid-item">{{elem.name}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

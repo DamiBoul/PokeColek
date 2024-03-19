@@ -1,0 +1,39 @@
+.theme-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .theme-toggle-switch {
+    margin: 0 10px;
+    width: 100px;
+  }
+  
+  /* Styles pour le bouton à bascule */
+  .theme-toggle-switch {
+    -webkit-appearance: none;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    outline: none;
+    border-radius: 25px;
+    transition: background-color 0.4s;
+  }
+  
+  .theme-toggle-switch::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .theme-toggle-switch::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  

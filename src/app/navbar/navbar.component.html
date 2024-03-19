@@ -1,0 +1,9 @@
+<nav class="navbar" [ngClass]="{ 'expanded': isExpanded }" (mouseenter)="expandNavbar()" (mouseleave)="collapseNavbar()">
+  <ul>
+    <li *ngFor="let link of navLinks">
+      <a [routerLink]="link.link" routerLinkActive #rla="routerLinkActive" (click)="navigate(link.link)">
+        {{ link.label }}
+      </a>
+    </li>
+  </ul>
+</nav>

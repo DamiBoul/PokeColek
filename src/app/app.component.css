@@ -1,0 +1,45 @@
+/* Styles pour le conteneur principal */
+.wrapper {
+  display: flow;
+
+}
+
+/* Styles pour la barre latérale */
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+}
+
+/* Styles pour le contenu principal */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Définition des thèmes */
+.light-theme {
+  background-color: #EBE6DA;
+  color: #191919;
+}
+
+.dark-theme {
+  background-color: #191919;
+  color: #EBE6DA;
+}
+
+/* Styles spécifiques à l'élément app-root */
+app-root {
+  display: block;
+}
+:root {
+  --body-background-color: #191919;
+  --text-color: #EBE6DA;
+}
+
+body {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+}

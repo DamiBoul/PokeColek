@@ -1,0 +1,10 @@
+<div class="wrapper" [ngClass]="settingService.theme === 'light' ? 'light-theme' : 'dark-theme'">
+  <div id="page-content-wrapper">
+    <div class="site-wrapper sidebar">
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

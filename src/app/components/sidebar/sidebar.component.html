@@ -1,0 +1,7 @@
+<table class="menu">
+    <th class="menu" *ngFor="let link of navLinks">
+        <a [routerLink]="link.link" routerLinkActive #rla="routerLinkActive" (click)="navigate(link.link)">
+          {{ link.label }}
+        </a>
+    </th>
+</table>
