@@ -9,7 +9,7 @@ import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
 })
 export class PremierePageComponent {
 
-  listeId: Array<String> = [];
+  listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
 
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
@@ -68,16 +68,6 @@ export class PremierePageComponent {
         });
     }
 
-    //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = fr;
-    document.getElementById('Types')!.innerHTML = stringTypes;
-    document.body.querySelector("#Talents")!.innerHTML = stringTalents;
-
-    //Affectation du src et de la caption de l'image de sprite
-    var sprite: HTMLImageElement;
-    sprite = document.body.querySelector("#Sprite")!;
-    sprite.src = pokemon.sprites.front_default;
-    sprite.alt = sprite.alt.concat(fr);
 
     //ajout du pokémon dans la liste pour affichage
     let p = new Pokemon();
@@ -97,7 +87,7 @@ export class PremierePageComponent {
 
     p.gen = generation.id;
 
-    //TODO
+    //Ligne d'evolution
     response = await fetch(espece.evolution_chain.url);
     let ligneEvo = await response.json();
 
@@ -130,24 +120,30 @@ export class PremierePageComponent {
     if(p.stade == 0){
       p.stade = 3;
     }
-
-    //p.stade = 0; //TODO
+    //----------
 
     p.taille = pokemon.height;
     p.poids = pokemon.weight;
 
     p.talent = listTalents;
 
-    POKEMONS.push(p);
+    /*Vérification Pokémon déjà présent*/
+    var i ;
+    var nc : Boolean = false;
+    for (i = 0 ; i < POKEMONS.length ; i++){
+      if (POKEMONS[i].name == p.name){
+        nc = true ;
+      }
+    }
 
-    //console.log(POKEMONS);
-
-    //mise à jour du tableau
-    this.listeId.push(String(POKEMONS.length));
-
-    //console.log(this.listeId);
+    /*Si le Pokémon n'a pas été trouvé, on l'ajoute au json et à la liste d'id*/
+    if (nc == false){
+      POKEMONS.push(p);
+      this.listeId.push(String(POKEMONS.length));
+    }
   }
 
+  /*Génère un Pokémon à trouver*/
   async generatePkmnToFind(): Promise<Pokemon>{
     let p = new Pokemon();
     
@@ -218,6 +214,7 @@ export class PremierePageComponent {
         });
     }
 
+    /*Ajout du Pokémon dans la base de données*/
     p.id = pokemon.id;
     p.name = fr;
     p.image = pokemon.sprites.front_default;
@@ -234,7 +231,7 @@ export class PremierePageComponent {
 
     p.gen = generation.id;
 
-    //TODO
+    //Stade d'évolution
     response = await fetch(espece.evolution_chain.url);
     let ligneEvo = await response.json();
 
@@ -250,25 +247,22 @@ export class PremierePageComponent {
       var listeEvo2: any[] = [];
       listeEvo.forEach((element: { evolves_to: any; }) =>{
         listeEvo2.concat(element.evolves_to);
-    });
-
-    console.log(listeEvo2);
+      });
 
       listeEvo.forEach((element: { species: { name: any; }; }) =>{
-        if(element.species.name == espece.name) p.stade = 2;
-    });
-    listeEvo2.forEach((element) =>{
-      console.log(element);
-      if(element.species.name == espece.name) p.stade = 3;
-    });
+          if(element.species.name == espece.name) p.stade = 2;
+      });
+      listeEvo2.forEach((element) =>{
+        console.log(element);
+        if(element.species.name == espece.name) p.stade = 3;
+      });
 
     }
 
     if(p.stade == 0){
       p.stade = 3;
     }
-
-    //p.stade = 0; //TODO
+    //------
 
     p.taille = pokemon.height;
     p.poids = pokemon.weight;
@@ -282,6 +276,7 @@ export class PremierePageComponent {
     }));
   }
 
+  /*A l'initialisation, on génère un pokemon*/
   ngOnInit(): void{
       this.generatePkmnToFind();
   }
