@@ -1,0 +1,37 @@
+.pokemon-container {
+  text-align: center;
+}
+
+.pokemon-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pokemon-type {
+  margin-top: 5px;
+}
+
+.pokemon-image {
+  margin-top: 20px;
+  max-width: 200px;
+}
+
+.result-container {
+  margin-top: 20px;
+}
+
+.guess-input {
+  margin-top: 20px;
+}
+
+.guess-button {
+  margin-top: 10px;
+}
+
+h1, h2, p{
+  color: #FFDF81;
+}
+
+.content{
+  width:1000px;
+}

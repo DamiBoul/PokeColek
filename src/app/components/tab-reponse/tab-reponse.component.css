@@ -1,0 +1,11 @@
+table {
+    width : 100% ;
+    color : #191919 ;
+    text-align: center;
+  }
+  
+  th{
+    width : 13% ;
+    min-width: 120px;
+    text-align: center;
+  }

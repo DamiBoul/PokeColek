@@ -1,0 +1,49 @@
+<div [ngSwitch]="typedonnees">
+
+    <div *ngSwitchCase="'pkmn'">
+        <table>
+            <th><app-greensquare couleur="{{couleurName(submission.name)}}" colonne="pokemon" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare couleur="{{couleurType(submission.type1, submission.type2)}}" colonne="types" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare valeurSupInf="{{compareGen(submission.gen)}}" couleur="{{couleurGen(submission.gen)}}" colonne="gen" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare valeurSupInf="{{compareStade(submission.stade)}}" couleur="{{couleurStade(submission.stade)}}" colonne="stade" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare couleur="{{couleurTalents(submission.talent)}}" colonne="talent" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare valeurSupInf="{{compareTaille(submission.taille)}}" couleur="{{couleurTaille(submission.taille)}}" colonne="taille" id={{pokemonid}}></app-greensquare></th>
+            <th><app-greensquare valeurSupInf="{{comparePoids(submission.poids)}}" couleur="{{couleurPoids(submission.poids)}}" colonne="poids" id={{pokemonid}}></app-greensquare></th>
+        </table>
+    </div>
+
+    <div *ngSwitchCase="'obj'">
+        <table>
+            <th><app-greensquare-objet couleur="{{couleurNameO(submissionO.name)}}" colonne="objet" id={{pokemonid}}></app-greensquare-objet></th>
+            <th><app-greensquare-objet valeurSupInf="{{compareCostO(submissionO.cost)}}" couleur="{{couleurCoutO(submissionO.cost)}}" colonne="cout" id={{pokemonid}}></app-greensquare-objet></th>
+            <th><app-greensquare-objet valeurSupInf="{{compareFlingO(submissionO.flingpower)}}" couleur="{{couleurFlingO(submissionO.flingpower)}}" colonne="degommage" id={{pokemonid}}></app-greensquare-objet></th>
+            <th><app-greensquare-objet couleur="{{couleurTenuO(submissionO.holdable)}}" colonne="tenu" id={{pokemonid}}></app-greensquare-objet></th>
+            <th><app-greensquare-objet couleur="{{couleurCatO(submissionO.categorie)}}" colonne="categorie" id={{pokemonid}}></app-greensquare-objet></th>
+            <th><app-greensquare-objet valeurSupInf="{{compareGenO(submissionO.gen)}}" couleur="{{couleurGenO(submissionO.gen)}}" colonne="gen" id={{pokemonid}}></app-greensquare-objet></th>
+        </table>
+    </div>
+
+    <div *ngSwitchCase="'lieu'">
+        <table>
+            <th><app-greensquare-lieu couleur="{{couleurNameL(submissionL.name)}}" colonne="lieu" id={{pokemonid}}></app-greensquare-lieu></th>
+            <th><app-greensquare-lieu couleur="{{couleurRegionL(submissionL.region)}}" colonne="region" id={{pokemonid}}></app-greensquare-lieu></th>
+            <th><app-greensquare-lieu couleur="{{couleurTypeL(submissionL.type)}}" colonne="type" id={{pokemonid}}></app-greensquare-lieu></th>
+            <th><app-greensquare-lieu couleur="{{couleurFindableL(submissionL.pokemon)}}" colonne="findable" id={{pokemonid}}></app-greensquare-lieu></th>
+            <th><app-greensquare-lieu couleur="{{couleurEncounterL(submissionL.encounter)}}" colonne="encounter" id={{pokemonid}}></app-greensquare-lieu></th>
+        </table>
+    </div>
+
+    <div *ngSwitchCase="'cap'">
+        <table>
+            <th><app-greensquare-cap couleur="{{couleurNameC(submissionC.name)}}" colonne="cap" id={{pokemonid}}></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurTypeC(submissionC.type)}}" colonne="type" id={{pokemonid}}></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurCategC(submissionC.categorie)}}" colonne="categorie" id={{pokemonid}}></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurPrecisionC(submissionC.precision)}}" colonne="precision" id={{pokemonid}} valeurSupInf="{{comparePrecisionC(submissionC.precision)}}"></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurPouvoirC(submissionC.pouvoir)}}" colonne="pouvoir" id={{pokemonid}} valeurSupInf="{{comparePouvoirC(submissionC.pouvoir)}}"></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurConcoursC(submissionC.concours)}}" colonne="concours" id={{pokemonid}}></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurGenC(submissionC.gen)}}" colonne="gen" id={{pokemonid}} valeurSupInf="{{compareGenC(submissionC.gen)}}"></app-greensquare-cap></th>
+            <th><app-greensquare-cap couleur="{{couleurPPC(submissionC.PP)}}" colonne="PP" id={{pokemonid}} valeurSupInf="{{comparePPC(submissionC.PP)}}"></app-greensquare-cap></th>
+        </table>
+    </div>
+</div>
+
