@@ -68,17 +68,6 @@ export class PremierePageComponent {
         });
     }
 
-    //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = fr;
-    document.getElementById('Types')!.innerHTML = stringTypes;
-    document.body.querySelector("#Talents")!.innerHTML = stringTalents;
-
-    //Affectation du src et de la caption de l'image de sprite
-    var sprite: HTMLImageElement;
-    sprite = document.body.querySelector("#Sprite")!;
-    sprite.src = pokemon.sprites.front_default;
-    sprite.alt = sprite.alt.concat(fr);
-
     //ajout du pokémon dans la liste pour affichage
     let p = new Pokemon();
     p.id = pokemon.id;
