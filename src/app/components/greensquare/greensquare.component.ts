@@ -13,6 +13,9 @@ import { Pokemon } from '../pokemon/pokemon.component';
   templateUrl: './greensquare.component.html',
   styleUrl: './greensquare.component.css'
 })
+
+/*Greensquare est le composant qui affiche un carré coloré dans les réponses du programme à l'entrée d'un Pokémon.
+Il prend en paramètre sa couleur, sur quelle colonne il s'affiche, s'il affiche que la valeur est +/- grande ainsi que l'id du Pokemon à afficher*/
 export class GreensquareComponent implements OnInit {
 
   @Input() couleur: string="";
@@ -22,6 +25,7 @@ export class GreensquareComponent implements OnInit {
 
   pokemon: Pokemon = POKEMONS[0] ;
 
+  //Récupération des données du Pokémon.
   ngOnInit(): void {
     this.pokemon = POKEMONS[parseInt(this.id) - 1] ;
   }

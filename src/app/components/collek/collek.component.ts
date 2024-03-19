@@ -11,6 +11,8 @@ import { Pokemon } from '../pokemon/pokemon.component';
   templateUrl: './collek.component.html',
   styleUrl: './collek.component.css'
 })
+
+/*Ce composant s'occupe d'afficher les items présents dans la collection du joueur. On lui passe en paramètre quel genre d'item on souhaite voir afficher (pkmn, objet, ...)*/
 export class CollekComponent {
 
   @Input() idUser: number=-1;

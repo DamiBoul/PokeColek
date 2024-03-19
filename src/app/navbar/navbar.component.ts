@@ -27,10 +27,10 @@ export class NavbarComponent {
       index: 2
     },
     {
-      label: 'Profil',
+      label: 'Login',
       icon: 'work',
       link: 'login',
-      index: 3
+      index: 1
     }
   ];
 

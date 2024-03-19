@@ -1,7 +1,9 @@
 .card {
     margin-top: 50px;
   }
-  
+  #page-content-wrapper {
+    background-color: transparent; /* Fond transparent pour chaque page */
+  }
   .card-title {
     font-size: 24px;
   }
@@ -11,7 +13,7 @@
   }
   
   .input-field label {
-    color: #333;
+    color: #191919;
   }
   
   .input-field input[type="text"],
@@ -31,7 +33,7 @@
   
   .btn {
     background-color: #FFDF81;
-    color: #333;
+    color: #191919;
   }
   
   .btn:hover {

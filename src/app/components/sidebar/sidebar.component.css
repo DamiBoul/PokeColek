@@ -1,17 +1,25 @@
+
 .menu table {
-  width : 100% ;
+  width: 100%;
   text-align: center;
 }
 
-.menu th{
+.active-case {
+  background-color: #9fda96 !important; /* Style différent pour la case active */
+  color: white;
+}
+.select {
+  background-color: #9fda96; /* Change this to the color you want */
+}
+.menu th {
   min-width: 120px;
   height: 30px;
   text-align: center;
-  border : 1px solid #191919 ;
+  border: 1px solid #191919;
   text-align: center;
   vertical-align: center;
   background-color: #FFDF81;
-  color : #191919 ;
+  color: #191919;
 }
 
 #actual {
@@ -19,12 +27,13 @@
 }
 
 table {
-  width : 100% ;
-  color : #FFDF81 ;
+  width: 100%;
+  color: #FFDF81;
   text-align: center;
 }
 
 a {
-  color :#191919 ;
+  color: #191919;
   text-decoration: unset;
+  font-size: 15pt;
 }

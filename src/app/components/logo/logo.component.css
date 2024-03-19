@@ -10,3 +10,15 @@ h1 {
       "Segoe UI Symbol";
     text-align: center;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh; /* Hauteur de l'écran */
+}
+
+.container img {
+  width: 50%;
+  height: auto; /* Pour maintenir le ratio de l'image */
+  max-width: 50%; /* Pour s'assurer que l'image ne dépasse pas sa taille d'origine */
+}

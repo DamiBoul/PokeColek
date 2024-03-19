@@ -1,14 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [
-  ]
+  styles: [],
+  styleUrls: ['./login.component.css']
 })
+export class LoginComponent implements  OnInit {
 
+  message: string = 'Vous êtes déconnecté. (pikachu/pikachu)';
+  name!: string;
+  password!: string;
+  auth!: AuthService;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    ) { }
+
+  ngOnInit(): void {
+    this.auth = this.authService;
+  }
 
   setMessage() {
     if(this.auth.isLoggedIn) {
@@ -18,29 +32,24 @@ import { AngularFireAuth } from '@angular/fire/auth';
     }
   }
 
-  export class LoginComponent {
-    email = '';
-    password = '';
-  
-    constructor(private afAuth: AngularFireAuth) {}
-  
-    login() {
-      this.afAuth.signInWithEmailAndPassword(this.email, this.password)
-        .then(res => {
-          console.log('User logged in successfully:', res);
-          // Redirect the user to the home page or show a success message
-        })
-        .catch(err => {
-          console.error('Error logging in:', err);
-          // Show an error message
-        });
-    }
+  login() {
+    this.message = "Tentative de connexion en cours...";
+    this.auth.login(this.name, this.password)
+      .subscribe((isLoggedIn: boolean) => {
+        this.setMessage();
+        if(isLoggedIn) {
+          this.router.navigate(['/pokemons']);
+        } else {
+          this.password = '';
+          this.router.navigate(['/login']);
+        }
+        
+      })
+  }
+
   logout() {
     this.auth.logout();
     this.message = 'Vous êtes déconnecté';
   }
-  }
 
-  
-
-
+}

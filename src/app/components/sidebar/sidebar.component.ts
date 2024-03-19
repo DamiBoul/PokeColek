@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component , OnInit} from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
+
+/*La sidebar affiche le menu horizontal pour choisir entre Pkmn/cap/lieu/objet*/
+export class SidebarComponent  implements OnInit{
+
+  activeLinkIndex: number = -1;
+
+  /*Différents liens*/
   navLinks = [
     {
       label: 'Pokémon',
@@ -33,10 +39,31 @@ export class SidebarComponent {
       index: 3
     }
   ];
+  selectedUser: number = -1; // Initialize the selectedUser to -1 (no row selected)
 
+  onSelect(index: number): void {
+    this.selectedUser = index; // Set the selectedUser to the index of the selected row
+  }
   constructor(private router: Router) {}
-  
-  navigate(link: string): void {
-    this.router.navigateByUrl(link);
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateActiveLinkIndex();
+      }
+    });
+    this.updateActiveLinkIndex();
+  }
+
+  updateActiveLinkIndex(): void {
+    this.navLinks.forEach((link, index) => {
+      if (this.router.isActive(link.link, true)) {
+        this.activeLinkIndex = index;
+      }
+    });
+  }
+  //Change de page
+  navigate(index: number): void {
+    this.router.navigateByUrl(this.navLinks[index].link);
+    this.activeLinkIndex =index;
   }
 }

@@ -7,7 +7,9 @@
     margin: 0 10px;
     width: 100px;
   }
-  
+  #page-content-wrapper {
+    background-color: transparent; /* Fond transparent pour chaque page */
+  }
   /* Styles pour le bouton à bascule */
   .theme-toggle-switch {
     -webkit-appearance: none;

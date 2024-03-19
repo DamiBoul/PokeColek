@@ -1,289 +1,348 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../components/pokemon/pokemon.component';
 import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
+import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-premiere-page',
 
   templateUrl: './premiere-page.component.html',
   styleUrl: './premiere-page.component.css'
 })
-export class PremierePageComponent {
 
-  listeId: Array<String> = [];
+/*La première page est la page d'accueil. C'est celle où l'on doit deviner un Pokémon.*/
+export class PremierePageComponent implements OnInit{
 
+  nbGuess: number = 0 ;
+  toFind: String = "";
+  gagne: boolean = false ;
+  perdu: boolean = false ;
+  listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
+  constructor(private apiService: ApiService) { }
+
+  /*Cherche un Pokémon dans l'API*/
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
-    let pokemon = await response.json(); // variable.json() met la requete au format 
-
-    response = await fetch(pokemon.species.url);
-    let espece = await response.json();
-
-    //Variable pour stocker le nom français du pokemon
-    var fr: string;
-    fr = "";
-
-    //Recherche du nom français du pokemon parmis toutes les langues
-    espece.names.forEach((element: { language: { name: string; }; name: any; }) =>{
-        if(element.language.name == "fr")
-            fr = element.name;
-    });
-
-    let yes;
-
-    //Variable pour stocker tous les types du pokemon
-    var stringTypes = "";
-    var listTypes: Array<string> = [];
-
-    //Pour chaque type du pokemon
-    for(let a of pokemon.types){
-        //Récupération du json du type
-        response = await fetch(a.type.url);
-        yes = await response.json();
-
-        //Recherche du type en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTypes = stringTypes.concat(element.name, " ");
-                listTypes.push(element.name);
-              }
-        });
-    }
-
-    //Variable pour stocker tous les talents du pokemon
-    var stringTalents = "";
-    var listTalents: Array<string> = [];
-
-    //Pour chaque talent du pokemon
-    for(let a of pokemon.abilities){
-        //Récupération du json du talent
-        response = await fetch(a.ability.url);
-        yes = await response.json();
-
-        //Recherche du talent en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTalents = stringTalents.concat(element.name, " ");
-                listTalents.push(element.name);
-            }
-        });
-    }
-
-    //Utilisation du json comme un objet
-    document.getElementById('Nom')!.innerHTML = fr;
-    document.getElementById('Types')!.innerHTML = stringTypes;
-    document.body.querySelector("#Talents")!.innerHTML = stringTalents;
-
-    //Affectation du src et de la caption de l'image de sprite
-    var sprite: HTMLImageElement;
-    sprite = document.body.querySelector("#Sprite")!;
-    sprite.src = pokemon.sprites.front_default;
-    sprite.alt = sprite.alt.concat(fr);
-
-    //ajout du pokémon dans la liste pour affichage
-    let p = new Pokemon();
-    p.id = pokemon.id;
-    p.name = fr;
-    p.image = pokemon.sprites.front_default;
-    p.type1 = listTypes[0];
-    if(listTypes.length>0){
-      p.type2 = listTypes[1];
-    }
-    else{
-      p.type2 = "Null";
-    }
-
-    response = await fetch(espece.generation.url);
-    let generation = await response.json();
-
-    p.gen = generation.id;
-
-    //TODO
-    response = await fetch(espece.evolution_chain.url);
-    let ligneEvo = await response.json();
-
-    var chaineEvo = ligneEvo.chain;
+    if (!this.gagne && !this.perdu){
     
-    p.stade = 0;
+      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
+      let pokemon = await response.json(); // variable.json() met la requete au format 
 
-    if(chaineEvo.species.name == espece.name){
-      p.stade = 1;
+      response = await fetch(pokemon.species.url);
+      let espece = await response.json();
+
+      //Variable pour stocker le nom français du pokemon
+      var fr: string;
+      fr = "";
+
+      //Recherche du nom français du pokemon parmis toutes les langues
+      espece.names.forEach((element: { language: { name: string; }; name: any; }) =>{
+          if(element.language.name == "fr")
+              fr = element.name;
+      });
+
+      let yes;
+
+      //Variable pour stocker tous les types du pokemon
+      var stringTypes = "";
+      var listTypes: Array<string> = [];
+
+      //Pour chaque type du pokemon
+      for(let a of pokemon.types){
+          //Récupération du json du type
+          response = await fetch(a.type.url);
+          yes = await response.json();
+
+          //Recherche du type en français et concaténation dans la variable de stockage
+          yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
+              if(element.language.name == "fr"){
+                  stringTypes = stringTypes.concat(element.name, " ");
+                  listTypes.push(element.name);
+                }
+          });
+      }
+
+      //Variable pour stocker tous les talents du pokemon
+      var stringTalents = "";
+      var listTalents: Array<string> = [];
+
+      //Pour chaque talent du pokemon
+      for(let a of pokemon.abilities){
+          //Récupération du json du talent
+          response = await fetch(a.ability.url);
+          yes = await response.json();
+
+          //Recherche du talent en français et concaténation dans la variable de stockage
+          yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
+              if(element.language.name == "fr"){
+                  stringTalents = stringTalents.concat(element.name, " ");
+                  listTalents.push(element.name);
+              }
+          });
+      }
+
+
+      //ajout du pokémon dans la liste pour affichage
+      let p = new Pokemon();
+      p.id = pokemon.id;
+      p.name = fr;
+      p.image = pokemon.sprites.front_default;
+      p.type1 = listTypes[0];
+      if(listTypes.length>0){
+        p.type2 = listTypes[1];
+      }
+      else{
+        p.type2 = "Null";
+      }
+
+      response = await fetch(espece.generation.url);
+      let generation = await response.json();
+
+      p.gen = generation.id;
+
+      //Ligne d'evolution
+      response = await fetch(espece.evolution_chain.url);
+      let ligneEvo = await response.json();
+
+      var chaineEvo = ligneEvo.chain;
+      
+      p.stade = 0;
+
+      if(chaineEvo.species.name == espece.name){
+        p.stade = 1;
+      }
+      else{
+        var listeEvo = chaineEvo.evolves_to;
+        var listeEvo2: any[] = [];
+        listeEvo.forEach((element: { evolves_to: any; }) =>{
+          listeEvo2.concat(element.evolves_to);
+      });
+
+      console.log(listeEvo2);
+
+        listeEvo.forEach((element: { species: { name: any; }; }) =>{
+          if(element.species.name == espece.name) p.stade = 2;
+      });
+      listeEvo2.forEach((element) =>{
+        console.log(element);
+        if(element.species.name == espece.name) p.stade = 3;
+      });
+
+      }
+
+      if(p.stade == 0){
+        p.stade = 3;
+      }
+      //----------
+
+      p.taille = parseFloat((pokemon.height * 0.1).toFixed(2)) ;
+      p.poids = parseFloat((pokemon.weight * 0.1).toFixed(2)) ;
+
+      p.talent = listTalents;
+
+       // Mettre à jour le nombre de tentatives dans le localStorage
+  const currentGuesses = parseInt(localStorage.getItem('nbGuess') || '0', 10);
+  localStorage.setItem('nbGuess', (currentGuesses + 1).toString());
+      /*Vérification Pokémon déjà présent
+      On ne vérifie pas l'indice 0 car c'est le Pokémon à devinir, il faut pouvoir le rentrer*/
+      var i ;
+      var nc : Boolean = false;
+      for (i = 1 ; i < POKEMONS.length ; i++){
+        if (POKEMONS[i].name == p.name){
+          nc = true ;
+        }
+      }
+
+      /*Si le Pokémon n'a pas été trouvé, on l'ajoute au json et à la liste d'id*/
+      if (nc == false){
+        POKEMONS.push(p);
+        this.listeId.unshift(String(POKEMONS.length));
+        this.nbGuess ++ ;
+      }
+
+      if (p.name == POKEMONS[0].name){
+        this.gagne = true ;
+      }
+
+      //Au bout du 7e essai, on perd.
+      if (this.nbGuess == 7){
+        this.perdu = true ;
+      }
     }
-    else{
-      var listeEvo = chaineEvo.evolves_to;
-      var listeEvo2: any[] = [];
-      listeEvo.forEach((element: { evolves_to: any; }) =>{
-        listeEvo2.concat(element.evolves_to);
-    });
 
-    console.log(listeEvo2);
-
-      listeEvo.forEach((element: { species: { name: any; }; }) =>{
-        if(element.species.name == espece.name) p.stade = 2;
-    });
-    listeEvo2.forEach((element) =>{
-      console.log(element);
-      if(element.species.name == espece.name) p.stade = 3;
-    });
-
-    }
-
-    if(p.stade == 0){
-      p.stade = 3;
-    }
-
-    //p.stade = 0; //TODO
-
-    p.taille = pokemon.height;
-    p.poids = pokemon.weight;
-
-    p.talent = listTalents;
-
-    POKEMONS.push(p);
-
-    //console.log(POKEMONS);
-
-    //mise à jour du tableau
-    this.listeId.push(String(POKEMONS.length));
-
-    //console.log(this.listeId);
+    console.log(this.nbGuess, this.toFind, this.gagne, this.perdu);
   }
 
-  async generatePkmnToFind(): Promise<Pokemon>{
-    let p = new Pokemon();
+  async generatePkmnToFind(): Promise<Pokemon> {
+    const storedDailyPokemon = localStorage.getItem('dailyPokemon');
     
-    let baseRequest = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10000";
-
-    let response = await fetch(baseRequest); //Appel de la requête passée en paramètre
-    let res = await response.json(); //Extraction de la réponse en format json
-
-    //----------Utilisation du json----------
-
-    //Sélection d'un pokemon aléatoire
-    let pokemon = res.results[Math.floor(Math.random() * res.results.length)];
-
-    //Récupération du json de ce pokemon
-    response = await fetch(pokemon.url);
-    pokemon = await response.json();
-
-    //Récupération du json de l'espèce de ce pokemon
-    response = await fetch(pokemon.species.url);
-    let espece = await response.json();
-
-    //Variable pour stocker le nom français du pokemon
-    let fr: string = "";
-
-    //Recherche du nom français du pokemon parmis toutes les langues
-    espece.names.forEach((element: { language: { name: string; }; name: any; }) =>{
-        if(element.language.name == "fr")
-            fr = element.name;
-    });
-
-    let yes;
-
-    //Variable pour stocker tous les types du pokemon
-    var stringTypes = "";
-    var listTypes: Array<string> = [];
-
-    //Pour chaque type du pokemon
-    for(let a of pokemon.types){
-        //Récupération du json du type
-        response = await fetch(a.type.url);
-        yes = await response.json();
-
-        //Recherche du type en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTypes = stringTypes.concat(element.name, " ");
-                listTypes.push(element.name);
+    if (storedDailyPokemon) {
+      // S'il y a un Pokémon quotidien déjà enregistré dans le localStorage, le récupérer et le retourner
+      return JSON.parse(storedDailyPokemon);
+    } else {
+      // S'il n'y a pas de Pokémon quotidien enregistré, générer un nouveau Pokémon comme d'habitude
+      let p = new Pokemon();
+      
+      let baseRequest = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10000";
+  
+      let response = await fetch(baseRequest); //Appel de la requête passée en paramètre
+      let res = await response.json(); //Extraction de la réponse en format json
+  
+      //----------Utilisation du json----------
+  
+      //Sélection d'un pokemon aléatoire
+      let pokemon = res.results[Math.floor(Math.random() * res.results.length)];
+  
+      //Récupération du json de ce pokemon
+      response = await fetch(pokemon.url);
+      pokemon = await response.json();
+  
+      //Récupération du json de l'espèce de ce pokemon
+      response = await fetch(pokemon.species.url);
+      let espece = await response.json();
+  
+      //Variable pour stocker le nom français du pokemon
+      let fr: string = "";
+  
+      //Recherche du nom français du pokemon parmis toutes les langues
+      espece.names.forEach((element: { language: { name: string; }; name: any; }) =>{
+          if(element.language.name == "fr")
+              fr = element.name;
+      });
+  
+      let yes;
+  
+      //Variable pour stocker tous les types du pokemon
+      var stringTypes = "";
+      var listTypes: Array<string> = [];
+  
+      //Pour chaque type du pokemon
+      for(let a of pokemon.types){
+          //Récupération du json du type
+          response = await fetch(a.type.url);
+          yes = await response.json();
+  
+          //Recherche du type en français et concaténation dans la variable de stockage
+          yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
+              if(element.language.name == "fr"){
+                  stringTypes = stringTypes.concat(element.name, " ");
+                  listTypes.push(element.name);
+                }
+          });
+      }
+  
+      //Variable pour stocker tous les talents du pokemon
+      var stringTalents = "";
+      var listTalents: Array<string> = [];
+  
+      //Pour chaque talent du pokemon
+      for(let a of pokemon.abilities){
+          //Récupération du json du talent
+          response = await fetch(a.ability.url);
+          yes = await response.json();
+  
+          //Recherche du talent en français et concaténation dans la variable de stockage
+          yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
+              if(element.language.name == "fr"){
+                  stringTalents = stringTalents.concat(element.name, " ");
+                  listTalents.push(element.name);
               }
+          });
+      }
+  
+      /*Ajout du Pokémon dans la base de données*/
+      p.id = pokemon.id;
+      p.name = fr;
+      p.image = pokemon.sprites.front_default;
+      p.type1 = listTypes[0];
+      if(listTypes.length>0){
+        p.type2 = listTypes[1];
+      }
+      else{
+        p.type2 = "null";
+      }
+  
+      response = await fetch(espece.generation.url);
+      let generation = await response.json();
+  
+      p.gen = generation.id;
+  
+      //Stade d'évolution
+      response = await fetch(espece.evolution_chain.url);
+      let ligneEvo = await response.json();
+  
+      var chaineEvo = ligneEvo.chain;
+      
+      p.stade = 0;
+  
+      if(chaineEvo.species.name == espece.name){
+        p.stade = 1;
+      }
+      else{
+        var listeEvo = chaineEvo.evolves_to;
+        var listeEvo2: any[] = [];
+        listeEvo.forEach((element: { evolves_to: any; }) =>{
+          listeEvo2.concat(element.evolves_to);
         });
-    }
-
-    //Variable pour stocker tous les talents du pokemon
-    var stringTalents = "";
-    var listTalents: Array<string> = [];
-
-    //Pour chaque talent du pokemon
-    for(let a of pokemon.abilities){
-        //Récupération du json du talent
-        response = await fetch(a.ability.url);
-        yes = await response.json();
-
-        //Recherche du talent en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTalents = stringTalents.concat(element.name, " ");
-                listTalents.push(element.name);
-            }
+  
+        listeEvo.forEach((element: { species: { name: any; }; }) =>{
+            if(element.species.name == espece.name) p.stade = 2;
         });
+        listeEvo2.forEach((element) =>{
+          console.log(element);
+          if(element.species.name == espece.name) p.stade = 3;
+        });
+  
+      }
+  
+      if(p.stade == 0){
+        p.stade = 3;
+      }
+      //------
+  
+      p.taille = parseFloat((pokemon.height * 0.1).toFixed(2)) ;
+      p.poids = parseFloat((pokemon.weight * 0.1).toFixed(2)) ;
+  
+      p.talent = listTalents;
+  
+      POKEMONS.unshift(p);
+      this.toFind = p.name ;
+  
+      // Enregistrer le nouveau Pokémon quotidien dans le localStorage
+      localStorage.setItem('dailyPokemon', JSON.stringify(p));
+  
+      return p;
     }
-
-    p.id = pokemon.id;
-    p.name = fr;
-    p.image = pokemon.sprites.front_default;
-    p.type1 = listTypes[0];
-    if(listTypes.length>0){
-      p.type2 = listTypes[1];
-    }
-    else{
-      p.type2 = "null";
-    }
-
-    response = await fetch(espece.generation.url);
-    let generation = await response.json();
-
-    p.gen = generation.id;
-
-    //TODO
-    response = await fetch(espece.evolution_chain.url);
-    let ligneEvo = await response.json();
-
-    var chaineEvo = ligneEvo.chain;
-    
-    p.stade = 0;
-
-    if(chaineEvo.species.name == espece.name){
-      p.stade = 1;
-    }
-    else{
-      var listeEvo = chaineEvo.evolves_to;
-      var listeEvo2: any[] = [];
-      listeEvo.forEach((element: { evolves_to: any; }) =>{
-        listeEvo2.concat(element.evolves_to);
-    });
-
-    console.log(listeEvo2);
-
-      listeEvo.forEach((element: { species: { name: any; }; }) =>{
-        if(element.species.name == espece.name) p.stade = 2;
-    });
-    listeEvo2.forEach((element) =>{
-      console.log(element);
-      if(element.species.name == espece.name) p.stade = 3;
-    });
-
-    }
-
-    if(p.stade == 0){
-      p.stade = 3;
-    }
-
-    //p.stade = 0; //TODO
-
-    p.taille = pokemon.height;
-    p.poids = pokemon.weight;
-
-    p.talent = listTalents;
-
-    POKEMONS.unshift(p);
-
-    return (new Promise(resolve => {
-      resolve(p);
-    }));
   }
 
+
+  
+  /*A l'initialisation, on génère un pokemon*/
   ngOnInit(): void{
-      this.generatePkmnToFind();
-  }
+    this.initializeGame();
 
+  }
+  async initializeGame(): Promise<void> {
+    // Récupérer le Pokémon quotidien depuis le service ApiService
+    const dailyPokemon = await this.apiService.getDailyPokemon().toPromise();
+
+    // Vérifier si le Pokémon quotidien est déjà présent dans le localStorage
+    const storedPokemon = localStorage.getItem('dailyPokemon');
+    if (!storedPokemon) {
+      // Si ce n'est pas le cas, sauvegarder le Pokémon dans le localStorage
+      localStorage.setItem('dailyPokemon', JSON.stringify(dailyPokemon));
+    }
+
+    // Initialiser le nombre de tentatives
+    const storedGuesses = localStorage.getItem('nbGuess');
+    if (!storedGuesses) {
+      // Si le nombre de tentatives n'est pas présent dans le localStorage, l'initialiser à 0
+      localStorage.setItem('nbGuess', '0');
+    }
+
+    // Initialiser la liste des Pokémon déjà devinés
+    const storedGuessedPokemon = localStorage.getItem('guessedPokemon');
+    if (!storedGuessedPokemon) {
+      // Si la liste des Pokémon déjà devinés n'est pas présente dans le localStorage, l'initialiser à un tableau vide
+      localStorage.setItem('guessedPokemon', JSON.stringify([]));
+    }
+  }
 }

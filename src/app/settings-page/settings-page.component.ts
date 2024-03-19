@@ -10,10 +10,13 @@ export class SettingsPageComponent {
   constructor(public settingsService: SettingService) { }
 
   toggleTheme() {
-    if (this.settingsService) {
-      this.settingsService.theme = this.settingsService.theme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', this.settingsService.theme);
+    if (this.settingsService.theme === 'light') {
+      this.settingsService.theme = 'dark';
+    } else {
+      this.settingsService.theme = 'light';
     }
+    // Sauvegarder le thème dans le stockage local
+    localStorage.setItem('theme', this.settingsService.theme);
   }
 
   setLanguage(event: any) { // Modifier le type du paramètre pour être 'any'
