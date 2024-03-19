@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './element-collek.component.html',
   styleUrl: './element-collek.component.css'
 })
+/*Cette classe représente un objet collectionnable.*/
 export class ElementCollek {
   id!: number; //numéro d'identification du collectionnable
   cat!: string; //indique à quelle catégorie l'objet appartient (pokemon, objet, capacite, lieu) 

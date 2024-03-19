@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../components/pokemon/pokemon.component';
 import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
+
 @Component({
   selector: 'app-premiere-page',
 
   templateUrl: './premiere-page.component.html',
   styleUrl: './premiere-page.component.css'
 })
-export class PremierePageComponent {
+
+/*La première page est la page d'accueil. C'est celle où l'on doit deviner un Pokémon.*/
+export class PremierePageComponent implements OnInit{
 
   listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
 

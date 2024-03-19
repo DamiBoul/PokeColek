@@ -8,12 +8,14 @@ import { ElementCollek } from '../element-collek/element-collek.component';
   templateUrl: './objet.component.html',
   styleUrl: './objet.component.css'
 })
+
+/*La classe objet représente un objet*/
 export class Objet extends ElementCollek{
   override cat = "objet";
   idObj!: number;
-  cost!: number ;
-  flingpower !: number ;
-  holdable !: boolean ;
-  categorie !: string ;
-  gen !: number ;
+  cost!: number ; //coût de l'objet en boutique
+  flingpower !: number ; //Pouvoir avec dégommage
+  holdable !: boolean ; //Peut être tenu par un pkmn
+  categorie !: string ; //Type d'objet : standard-ball, special-ball, etc.
+  gen !: number ; //Génération d'apparition
 }

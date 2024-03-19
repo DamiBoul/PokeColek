@@ -6,7 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
+
+/*La sidebar affiche le menu horizontal pour choisir entre Pkmn/cap/lieu/objet*/
 export class SidebarComponent {
+
+  /*Différents liens*/
   navLinks = [
     {
       label: 'Pokémon',
@@ -36,6 +40,7 @@ export class SidebarComponent {
 
   constructor(private router: Router) {}
   
+  //Change de page
   navigate(link: string): void {
     this.router.navigateByUrl(link);
   }
