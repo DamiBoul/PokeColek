@@ -5,23 +5,34 @@
   <div id="page-content-wrapper">
       <!-- Top navigation-->
 
-      <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
       <app-logo></app-logo>
       <!-- Page content-->
       <div class="container-fluid">
-        <!--Différents id pour les récupérer dans le fichier scripts.js-->
-        <h1 id="Nom"></h1>
-        <p id="Types"></p>
-        <p id="Talents"></p>
-        <img id="Sprite" src="" alt="Sprite de ">
-          <div class="content">
+        
+        <div class="content">
+
+          <!--Menu horizontal-->
           <app-sidebar></app-sidebar>
 
+          <!--Barre de recherche-->
           <br><br>
           <p>Devinez le Pokémon !</p>
           <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-          <br><br>
+          
 
+
+          <div *ngIf="gagne">
+            <p>Vous avez deviné !!</p>
+          </div>
+          <div *ngIf="perdu">
+            <p>Vous avez perdu... <br>Le Pokémon était {{toFind}}.</p>
+          </div>
+          <div *ngIf="!perdu && !gagne">
+            <p>Il vous reste {{7 - nbGuess}} essais.</p>
+          </div>
+          
+          <br><br>
+          <!--Entête tableau-->
           <table>
             <th>Pokémon </th>
             <th>Types</th>
@@ -30,15 +41,15 @@
             <th>Talents</th>
             <th>Taille</th>
             <th>Poids</th>
-        </table>
+          </table>
 
-
-        <div *ngFor="let id of listeId">
-            <app-tab-reponse typedonnees="pkmn" pokemonid={{id}} ></app-tab-reponse>
-        </div>
-        <br><br><br><br><br><br><br><br><br>
+          <!--Affichage du tableau-->
+          <div *ngFor="let id of listeId">
+              <app-tab-reponse typedonnees="pkmn" pokemonid={{id}} ></app-tab-reponse>
+          </div>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
-      </div>
+    </div>
   </div>
 </div>
 

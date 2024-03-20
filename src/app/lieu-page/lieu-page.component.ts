@@ -7,6 +7,7 @@ import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
   templateUrl: './lieu-page.component.html',
   styleUrl: './lieu-page.component.css'
 })
+
 export class LieuPageComponent {
   title = 'Napoleon';
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
