@@ -1,6 +1,6 @@
 p {
   margin: 10px; /* Ajout de "px" pour spécifier l'unité */
-  color: var(--gray-700); /* Utilisation de la variable de couleur */
+  color: #FFDF81; /* Utilisation de la variable de couleur */
   margin-left: auto;
   margin-right: auto;
   width: 12em;

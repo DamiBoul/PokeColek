@@ -1,6 +1,5 @@
 <!--Formulaire d'envoi de réponse-->
-<form>
+<form #myForm="ngForm">
     <input [(ngModel)]="name">
-    <p>Value:</p>
-    <button (click)="printValue()">Set</button>
+    <button (click)="printValue()">Envoyer</button>
 </form>

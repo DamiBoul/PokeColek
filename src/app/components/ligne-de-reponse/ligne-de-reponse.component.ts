@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-ligne-de-reponse',
@@ -13,7 +12,6 @@ import { NgForm } from '@angular/forms';
 /*Ligne de réponse affiche la barre de réponse et envoie le Pokémon entré à la page qui l'appelle*/
 export class LigneDeReponseComponent {
   @Output() poke = new EventEmitter<string>();
-
   name = '';
 
   printValue() : void {

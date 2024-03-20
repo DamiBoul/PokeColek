@@ -18,8 +18,20 @@
           <br><br>
           <p>Devinez le Pokémon !</p>
           <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-          <br><br>
+          
 
+
+          <div *ngIf="gagne">
+            <p>Vous avez deviné !!</p>
+          </div>
+          <div *ngIf="perdu">
+            <p>Vous avez perdu... <br>Le Pokémon était {{toFind}}.</p>
+          </div>
+          <div *ngIf="!perdu && !gagne">
+            <p>Il vous reste {{7 - nbGuess}} essais.</p>
+          </div>
+          
+          <br><br>
           <!--Entête tableau-->
           <table>
             <th>Pokémon </th>
