@@ -305,6 +305,7 @@ export class PremierePageComponent implements OnInit{
     }));
   }
 
+  /*Tri les pokemons pour enlever les pokemons trop durs à trouver ou inutiles*/
   pkmnIsInteresting(pokemon: any){
     let nom = pokemon.name;
 
