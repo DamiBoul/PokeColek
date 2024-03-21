@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    const firebaseConfig = {
+    /*const firebaseConfig = {
       apiKey: "AIzaSyDMQ9cDfkAtWnGz42KTE8R1ljkNR-w06Us",
       authDomain: "pocollection-c15f2.firebaseapp.com",
       projectId: "pocollection-c15f2",
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
       appId: "1:493665883497:web:73b691664028a03b6399f8",
       measurementId: "G-9FYZLELYZ0"
     };
-    firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);*/
   }
 
   navigateTo(route: string) {
