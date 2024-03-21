@@ -11,7 +11,7 @@
   }
   
   .input-field label {
-    color: #333;
+    color: #191919;
   }
   
   .input-field input[type="text"],
@@ -31,7 +31,7 @@
   
   .btn {
     background-color: #FFDF81;
-    color: #333;
+    color: #191919;
   }
   
   .btn:hover {

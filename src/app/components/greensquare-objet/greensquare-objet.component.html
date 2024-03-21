@@ -97,21 +97,17 @@
             <div *ngSwitchCase="'gen'">
 
                 <div [ngSwitch]="couleur">
-                    <div *ngSwitchCase="'vert'">
-                        <th class= green-square>{{obj.gen}}</th>
-                    </div>
-                    <div *ngSwitchCase="'rouge'">
-                        <th class= red-square>{{obj.gen}}
-                            <div [ngSwitch]="valeurSupInf">
-                                <div *ngSwitchCase="'+'">
-                                    ↑
-                                </div>
-                                <div *ngSwitchCase="'-'">
-                                    ↓
-                                </div>
-                            </div>
-                        </th>
-                    </div>
+                        <div *ngSwitchCase="'vert'">
+                            <th class= green-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
+                        </div>
+                        <div *ngSwitchCase="'orange'">
+                            <th class= orange-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
+                        </div>
+                        <div *ngSwitchCase="'rouge'">
+                            <th class= red-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
+                        </div>
+                        <div *ngSwitchCaseDefault>erreur affichage carré</div>
+                
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
                 </div>
 
