@@ -10,7 +10,6 @@ import { CapPageComponent } from './cap-page/cap-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/premiere-page', pathMatch: 'full' },
-  { path: 'premiere-page', component: PremierePageComponent },
   { path: 'deuxieme-page', component: DeuxiemePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'settings-page', component: SettingsPageComponent },
