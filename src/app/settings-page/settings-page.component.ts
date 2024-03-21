@@ -11,7 +11,7 @@ export class SettingsPageComponent {
 
   toggleTheme() {
     if (this.settingsService) {
-      this.settingsService.theme = this.settingsService.theme === 'light' ? 'dark' : 'light';
+      this.settingsService.theme = this.settingsService.theme === 'light' ? 'dark' : 'dark';
       localStorage.setItem('theme', this.settingsService.theme);
     }
   }

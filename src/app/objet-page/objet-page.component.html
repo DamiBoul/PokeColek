@@ -5,31 +5,43 @@
     <div id="page-content-wrapper">
         <!-- Top navigation-->
         
-        <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
         <app-logo></app-logo>
         <!-- Page content-->
         <div class="container-fluid">
             <div class="content">
-            <app-sidebar></app-sidebar>
-  
-            <br><br>
-            <p>Devinez l'objet !</p>
-            <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-            <br><br>
+                <br>
+                <app-sidebar></app-sidebar>
     
-            <table>
-                <th>Objet</th>
-                <th>Coût </th>
-                <th>Dégommage</th>
-                <th>Tenu</th>
-                <th>Catégorie</th>
-                <th>Génération</th>
-            </table>
-            <app-tab-reponse typedonnees="obj" pokemonid="3" ></app-tab-reponse>
-            <app-tab-reponse typedonnees="obj" pokemonid="2" ></app-tab-reponse>
-            <app-tab-reponse typedonnees="obj" pokemonid="1" ></app-tab-reponse>
-            <br><br><br><br><br><br><br><br><br><br><br>
-        </div>
+                <br>
+                <p>Devinez l'objet !</p>
+                <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
+                
+                <div *ngIf="gagne">
+                    <p>Vous avez deviné !!</p>
+                </div>
+                <div *ngIf="perdu">
+                    <p>Vous avez perdu... <br>Le Pokémon était {{toFind}}.</p>
+                </div>
+                <div *ngIf="!perdu && !gagne">
+                    <p>Il vous reste {{20 - nbGuess}} essais.</p>
+                </div>
+          
+
+                <br><br>
+        
+                <table>
+                    <th>Objet</th>
+                    <th>Coût </th>
+                    <th>Dégommage</th>
+                    <th>Tenu</th>
+                    <th>Catégorie</th>
+                    <th>Tenu naturellement</th>
+                </table>
+                <div *ngFor="let id of listeId">
+                    <app-tab-reponse typedonnees="obj" pokemonid={{id}} ></app-tab-reponse>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
         </div>
     </div>
   </div>

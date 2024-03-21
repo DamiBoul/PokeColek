@@ -19,6 +19,18 @@ export class NavbarComponent {
       icon: 'work',
       link: 'deuxieme-page',
       index: 1
+    },
+    {
+      label: 'Paramètres',
+      icon: 'work',
+      link: 'settings-page',
+      index: 2
+    },
+    {
+      label: 'Login',
+      icon: 'work',
+      link: 'login',
+      index: 1
     }
   ];
 

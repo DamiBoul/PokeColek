@@ -249,16 +249,6 @@ export class TabReponseComponent implements OnInit{
     }
     return "";    
   }
-  
-  compareGenO(cost:number){
-    if (cost > this.toFindO.gen){
-      return "-" ;
-    }
-    if (cost < this.toFindO.gen){
-      return "+" ;
-    }
-    return "";    
-  }
 
   /* FONCTION COMPARANT LES COULEURS */
 
@@ -297,10 +287,23 @@ export class TabReponseComponent implements OnInit{
     return "rouge" ;
   }
 
-  couleurGenO(value:number){
-    if (value == this.toFindO.gen) {
-      return "vert" ;
+  couleurPokeO(t:Array<String>){
+    var cpt = 0 ;
+
+    for (var i = 0 ; i < t.length ; i ++ ){
+      if (this.toFindO.hold_by.includes(t[i])){
+        cpt = cpt + 1 ;
+      }
     }
+    
+    //console.log(i, cpt);
+    if (cpt == i && cpt == this.toFindO.hold_by.length){
+      return "vert";
+    }
+    if (cpt != 0){
+      return "orange" ;
+    }
+
     return "rouge" ;
   }
 
