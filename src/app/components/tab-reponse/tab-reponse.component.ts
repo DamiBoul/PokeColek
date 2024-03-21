@@ -20,6 +20,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './tab-reponse.component.html',
   styleUrl: './tab-reponse.component.css'
 })
+
+/*Tab de Reponse est THE composant ! C'est lui qui calcule la couleur des carrés de réponses et qui envoie les informations au greensquare correspondant au type d'entrée*/
 export class TabReponseComponent implements OnInit{
   @Input() pokemonid: string = "";
   @Input() typedonnees: string ="";
@@ -39,6 +41,8 @@ export class TabReponseComponent implements OnInit{
   submissionC : Cap = CAPS[0];
   toFindC: Cap = CAPS[0];
 
+  /*On charge les données de l'item à trouver et de la proposition du joueur
+  L'item a trouvé ayant mis en tête de POKEMONS à l'initialisation de la page, on prend l'élément [0]*/
   ngOnInit(): void {
     //console.log(POKEMONS[parseInt(this.pokemonid) - 1]);
 

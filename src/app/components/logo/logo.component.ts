@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './logo.component.html',
   styleUrl: './logo.component.css'
 })
+
+/*Affiche le logo en haut de la page*/
 export class LogoComponent {
 
 }
