@@ -14,7 +14,7 @@ export class ObjetPageComponent {
   toFind: String = "";
   gagne: boolean = false ;
   perdu: boolean = false ;
-  listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
+  listeId: Array<String> = []; //Liste des objets déjà envoyés par l'utilisateur.
 
   /*Cherche un Objet dans l'API*/
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
