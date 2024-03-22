@@ -5,16 +5,26 @@
     <div id="page-content-wrapper">
         <!-- Top navigation-->
         
-        <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
         <app-logo></app-logo>
         <!-- Page content-->
         <div class="container-fluid">
             <div class="content">
+                <br>
             <app-sidebar></app-sidebar>
   
             <br><br>
             <p>Devinez le lieu !</p>
             <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
+                
+            <div *ngIf="gagne">
+                <p>Vous avez deviné !!</p>
+            </div>
+            <div *ngIf="perdu">
+                <p>Vous avez perdu... <br>Le lieu était {{toFind}}.</p>
+            </div>
+            <div *ngIf="!perdu && !gagne">
+                <p>Il vous reste {{30 - nbGuess}} essais.</p>
+            </div>
             <br><br>
     
             <table>
@@ -24,9 +34,9 @@
                 <th>Pokémon trouvable</th>
                 <th>Méthode de rencontre</th>
             </table>
-            <app-tab-reponse pokemonid="2" typedonnees="lieu" ></app-tab-reponse>
-            <app-tab-reponse pokemonid="4" typedonnees="lieu" ></app-tab-reponse>
-            <app-tab-reponse pokemonid="1" typedonnees="lieu" ></app-tab-reponse>
+            <div *ngFor="let id of listeId">
+                <app-tab-reponse typedonnees="lieu" pokemonid={{id}} ></app-tab-reponse>
+            </div>
             <br><br><br><br><br><br><br><br><br></div>
         </div>
     </div>
