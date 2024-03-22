@@ -179,7 +179,11 @@ export class PremierePageComponent implements OnInit{
     //----------Utilisation du json----------
 
     //Sélection d'un pokemon aléatoire
-    let pokemon = res.results[Math.floor(Math.random() * res.results.length)];
+    let pokemon;
+
+    do{
+      pokemon = res.results[Math.floor(Math.random() * res.results.length)];
+    }while(!this.pkmnIsInteresting(pokemon));
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
@@ -299,6 +303,18 @@ export class PremierePageComponent implements OnInit{
     return (new Promise(resolve => {
       resolve(p);
     }));
+  }
+
+  /*Tri les pokemons pour enlever les pokemons trop durs à trouver ou inutiles*/
+  pkmnIsInteresting(pokemon: any){
+    let nom = pokemon.name;
+
+    return (!nom.includes("-mega") && 
+            !nom.includes("-alola") && 
+            !nom.includes("-galar") && 
+            !nom.includes("-hisui") && 
+            !nom.includes("-paldea") &&
+            !nom.includes("-primal"));
   }
 
   /*A l'initialisation, on génère un pokemon*/
