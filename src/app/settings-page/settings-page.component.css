@@ -21,6 +21,7 @@
     transition: background-color 0.4s;
   }
   
+  
   .theme-toggle-switch::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;

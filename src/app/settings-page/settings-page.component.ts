@@ -9,6 +9,7 @@ import { SettingService } from '../services/settings-service.service';
 export class SettingsPageComponent {
   constructor(public settingsService: SettingService) { }
 
+  
   toggleTheme() {
     if (this.settingsService.theme === 'light') {
       this.settingsService.theme = 'dark';

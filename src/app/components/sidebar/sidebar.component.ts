@@ -7,6 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 
+
 /*La sidebar affiche le menu horizontal pour choisir entre Pkmn/cap/lieu/objet*/
 export class SidebarComponent  implements OnInit{
 

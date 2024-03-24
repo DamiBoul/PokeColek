@@ -3,6 +3,7 @@
 <br>
 <div *ngIf="settingsService">
   <h2>Settings</h2>
+  
   <div>
     <label>Language:</label>
     <select [(ngModel)]="settingsService.language" (change)="setLanguage($event)">
