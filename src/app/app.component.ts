@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SettingService } from './services/settings-service.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  dateLastUpdate!: Date;
+
   constructor(public settingService: SettingService, private router: Router) {
     const theme = localStorage.getItem('theme');
     if (theme) {
@@ -19,6 +20,10 @@ export class AppComponent {
     if (language) {
       this.settingService.language = language as 'fr' | 'en';
     }
+  }
+
+  ngOnInit(){
+    
   }
 
   navigateTo(route: string) {

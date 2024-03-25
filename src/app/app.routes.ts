@@ -9,7 +9,7 @@ import { LieuPageComponent } from './lieu-page/lieu-page.component';
 import { CapPageComponent } from './cap-page/cap-page.component';
 import { RegleComponent } from './regle/regle.component';
 export const routes: Routes = [
-  { path: 'premiere-page', component: PremierePageComponent },
+  { path: '', redirectTo: '/premiere-page', pathMatch: 'full' },
   { path: 'deuxieme-page', component: DeuxiemePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'settings-page', component: SettingsPageComponent },

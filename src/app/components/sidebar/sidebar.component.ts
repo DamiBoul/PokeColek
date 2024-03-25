@@ -66,5 +66,6 @@ export class SidebarComponent  implements OnInit{
   navigate(index: number): void {
     this.router.navigateByUrl(this.navLinks[index].link);
     this.activeLinkIndex =index;
+
   }
 }

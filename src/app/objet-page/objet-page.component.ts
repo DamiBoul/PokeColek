@@ -14,7 +14,7 @@ export class ObjetPageComponent {
   toFind: String = "";
   gagne: boolean = false ;
   perdu: boolean = false ;
-  listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
+  listeId: Array<String> = []; //Liste des objets déjà envoyés par l'utilisateur.
 
   /*Cherche un Objet dans l'API*/
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
@@ -101,13 +101,16 @@ export class ObjetPageComponent {
     //----------Utilisation du json----------
 
     //Sélection d'un objet aléatoire
-    let objet = res.results[Math.floor(Math.random() * res.results.length)];
+    let objet;
+    do{
+      objet = res.results[Math.floor(Math.random() * res.results.length)];
+      //Récupération du json de cet objet
+      response = await fetch(objet.url);
+      objet = await response.json();
+    }while(!this.objIsInteresting(objet));
+
     console.log(objet);
     console.log(res.results.length);
-    
-    //Récupération du json de cet objet
-    response = await fetch(objet.url);
-    objet = await response.json();
     
     //Variable pour stocker le nom français de l'objet
     let fr: string = "";
@@ -146,6 +149,23 @@ export class ObjetPageComponent {
     return (new Promise(resolve => {
       resolve(p);
     }));
+
+  }
+
+  /*Tri les objets pour enlever les objets trop durs à trouver ou inutiles*/
+  objIsInteresting(objet: any){
+    let category = objet.category.name;
+    console.log(category);
+    console.log(objet.name);
+
+    return (!(category == "all-machines") &&
+            !(category == "tm-materials") &&
+            !(category == "sandwich-ingredients") &&
+            !(category == "curry-ingredients") &&
+            !(category == "picnic") &&
+            !(category == "dynamax-crystals") &&
+            !(category == "unused") &&
+            !(category == "plot-advancement"));
   }
 
   /*A l'initialisation, on génère un pokemon*/

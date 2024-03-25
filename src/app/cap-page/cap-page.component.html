@@ -5,32 +5,43 @@
     <div id="page-content-wrapper">
         <!-- Top navigation-->
         
-        <button class="btn btn-primary" id="buttonApi" onClick="call()">Call API</button>
         <app-logo></app-logo>
         <!-- Page content-->
         <div class="container-fluid">
             <div class="content">
-            <app-sidebar></app-sidebar>
-  
-            <br><br>
-            <p>Devinez la capacité !</p>
-            <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
-            <br><br>
+                <br>
+                <app-sidebar></app-sidebar>
     
-            <table>
-                <th>Capacité</th>
-                <th>Type </th>
-                <th>Catégorie</th>
-                <th>Précision</th>
-                <th>Pouvoir</th>
-                <th>Concours</th>
-                <th>Génération</th>
-                <th>PP</th>
-            </table>
-            <app-tab-reponse pokemonid="3" typedonnees="cap" ></app-tab-reponse>
-            <app-tab-reponse pokemonid="4" typedonnees="cap" ></app-tab-reponse>
-            <app-tab-reponse pokemonid="1" typedonnees="cap" ></app-tab-reponse>
-            <br><br><br><br><br><br><br><br><br><br><br>
+                <br>
+                <p>Devinez la capacité !</p>
+                <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
+                
+                <div *ngIf="gagne">
+                    <p>Vous avez deviné !!</p>
+                </div>
+                <div *ngIf="perdu">
+                    <p>Vous avez perdu... <br>La capacité était {{toFind}}.</p>
+                </div>
+                <div *ngIf="!perdu && !gagne">
+                    <p>Il vous reste {{12 - nbGuess}} essais.</p>
+                </div>
+
+                <br><br>
+        
+                <table>
+                    <th>Capacité</th>
+                    <th>Type </th>
+                    <th>Catégorie</th>
+                    <th>Précision</th>
+                    <th>Pouvoir</th>
+                    <th>Concours</th>
+                    <th>Génération</th>
+                    <th>PP</th>
+                </table>
+                <div *ngFor="let id of listeId">
+                    <app-tab-reponse typedonnees="cap" pokemonid={{id}} ></app-tab-reponse>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br>
             </div>
         </div>
     </div>

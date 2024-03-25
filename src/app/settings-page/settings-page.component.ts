@@ -15,6 +15,7 @@ export class SettingsPageComponent {
       this.settingsService.theme = 'dark';
     } else {
       this.settingsService.theme = 'light';
+
     }
     // Sauvegarder le thème dans le stockage local
     localStorage.setItem('theme', this.settingsService.theme);
