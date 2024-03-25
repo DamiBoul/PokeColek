@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -25,25 +25,8 @@ export class ApiService {
   }
 
   getDailyPokemon(): Observable<any> {
-    // Vérifiez s'il existe un Pokémon enregistré dans le localStorage pour aujourd'hui
-    const today = new Date().toISOString().split('T')[0];
-    let dailyPokemon = localStorage.getItem(`dailyPokemon-${today}`);
-
-    if (dailyPokemon) {
-      // S'il existe, renvoyez-le
-      return of(JSON.parse(dailyPokemon));
-} else {
-      // Sinon, générez-en un nouveau
-      const randomIndex = Math.floor(Math.random() * this.dailyPokemonList.length);
-      const randomPokemon = this.dailyPokemonList[randomIndex];
-      return this.getPokemonByName(randomPokemon).pipe(
-        tap(pokemon => {
-          if (pokemon) {
-            // Lorsque vous obtenez le Pokémon, enregistrez-le dans le localStorage
-            localStorage.setItem(`dailyPokemon-${today}`, JSON.stringify(pokemon));
-          }
-        })
-      );
-    }
+    const randomIndex = Math.floor(Math.random() * this.dailyPokemonList.length);
+    const randomPokemon = this.dailyPokemonList[randomIndex];
+    return this.getPokemonByName(randomPokemon);
   }
 }

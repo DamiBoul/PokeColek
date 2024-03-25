@@ -149,7 +149,6 @@ export class ObjetPageComponent {
     return (new Promise(resolve => {
       resolve(p);
     }));
-
   }
 
   /*Tri les objets pour enlever les objets trop durs à trouver ou inutiles*/

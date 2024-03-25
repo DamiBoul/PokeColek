@@ -36,8 +36,8 @@ export function app(): express.Express {
         publicPath: browserDistFolder,
         providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
       })
-      .then((html: any) => res.send(html))
-      .catch((err: any) => next(err));
+      .then((html) => res.send(html))
+      .catch((err) => next(err));
   });
 
   return server;
