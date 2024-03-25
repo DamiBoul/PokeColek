@@ -44,18 +44,7 @@ export class CapPageComponent {
       p.image = "";
 
       //type de la capacité
-      var stringTypes = "";
-        //Récupération du json du type
-        response = await fetch(cap.type.url);
-        let yes = await response.json();
-
-        //Recherche du type en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTypes = stringTypes.concat(element.name, " ");
-                p.type = element.name;
-              }
-        });
+      p.type = cap.type.name ;
 
 
       //categorie de la capacité
@@ -154,18 +143,7 @@ export class CapPageComponent {
     p.image = "";
 
     //type de la capacité
-      var stringTypes = "";
-      //Récupération du json du type
-      response = await fetch(cap.type.url);
-      let yes = await response.json();
-
-      //Recherche du type en français et concaténation dans la variable de stockage
-      yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-          if(element.language.name == "fr"){
-              stringTypes = stringTypes.concat(element.name, " ");
-              p.type = element.name;
-            }
-      });
+    p.type = cap.type.name ;
 
 
     //categorie de la capacité
