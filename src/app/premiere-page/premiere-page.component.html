@@ -12,11 +12,11 @@
         <div class="content">
 
           <!--Menu horizontal-->
-          <br>
           <app-sidebar></app-sidebar>
 
           <!--Barre de recherche-->
-          <br>
+          <br><br>
+
           <p>Devinez le Pokémon !</p>
           <app-ligne-de-reponse (poke)="search($event)"></app-ligne-de-reponse>
           
@@ -46,9 +46,10 @@
 
           <!--Affichage du tableau-->
           <div *ngFor="let id of listeId">
-              <app-tab-reponse typedonnees="pkmn" pokemonid={{id}} ></app-tab-reponse>
+              <app-tab-reponse typedonnees="pkmn" pokemonid={{id}}></app-tab-reponse>
           </div>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
       </div>
     </div>
   </div>

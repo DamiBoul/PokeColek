@@ -1,10 +1,13 @@
 .card {
     margin-top: 50px;
   }
-  
+  #page-content-wrapper {
+    background-color: transparent; /* Fond transparent pour chaque page */
+  }
   .card-title {
     font-size: 24px;
   }
+  
   
   .input-field {
     margin-bottom: 20px;

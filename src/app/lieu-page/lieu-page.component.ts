@@ -7,6 +7,7 @@ import { LIEUX } from '../components/mock-pokemon/mock-lieu';
   templateUrl: './lieu-page.component.html',
   styleUrl: '../premiere-page/premiere-page.component.css'
 })
+
 export class LieuPageComponent {
 
 
