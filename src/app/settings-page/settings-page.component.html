@@ -1,7 +1,10 @@
+<div id="page-content-wrapper">
+
 <app-logo></app-logo>
 <br>
 <div *ngIf="settingsService">
   <h2>Settings</h2>
+  
   <div>
     <label>Language:</label>
     <select [(ngModel)]="settingsService.language" (change)="setLanguage($event)">
@@ -18,4 +21,6 @@
   </div>
 </div>
 
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

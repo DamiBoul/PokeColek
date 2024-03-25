@@ -4,6 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "my-pocollectif-app": {
+    "my-pocollectif-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +14,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "outputPath": "dist/my-pocollectif-app",
             "outputPath": "dist/my-pocollectif-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -25,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
@@ -62,8 +63,10 @@
           "configurations": {
             "production": {
               "buildTarget": "my-pocollectif-app:build:production"
+              "buildTarget": "my-pocollectif-app:build:production"
             },
             "development": {
+              "buildTarget": "my-pocollectif-app:build:development"
               "buildTarget": "my-pocollectif-app:build:development"
             }
           },
@@ -72,6 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "buildTarget": "my-pocollectif-app:build"
             "buildTarget": "my-pocollectif-app:build"
           }
         },
@@ -97,6 +101,7 @@
     }
   },
   "cli": {
+    "analytics": "5d182580-cec1-4dd6-ac64-0c51cd7c8358"
     "analytics": "5d182580-cec1-4dd6-ac64-0c51cd7c8358"
   }
 }

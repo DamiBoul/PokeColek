@@ -7,7 +7,7 @@ import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { ObjetPageComponent } from './objet-page/objet-page.component';
 import { LieuPageComponent } from './lieu-page/lieu-page.component';
 import { CapPageComponent } from './cap-page/cap-page.component';
-
+import { RegleComponent } from './regle/regle.component';
 export const routes: Routes = [
   { path: '', redirectTo: '/premiere-page', pathMatch: 'full' },
   { path: 'deuxieme-page', component: DeuxiemePageComponent },
@@ -15,7 +15,8 @@ export const routes: Routes = [
   { path: 'settings-page', component: SettingsPageComponent },
   { path: 'objet-page', component: ObjetPageComponent},
   { path: 'lieu-page', component: LieuPageComponent},
-  { path: 'cap-page', component: CapPageComponent}
+  { path: 'cap-page', component: CapPageComponent},
+  { path: 'regle', component: RegleComponent },
 ];
 
 @NgModule({

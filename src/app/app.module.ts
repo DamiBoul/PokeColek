@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RegleComponent } from './regle/regle.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PremierePageComponent } from './premiere-page/premiere-page.component';
 import { DeuxiemePageComponent } from './deuxieme-page/deuxieme-page.component';
@@ -17,6 +18,11 @@ import { LieuPageComponent } from './lieu-page/lieu-page.component';
 import { CapPageComponent } from './cap-page/cap-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CollekComponent } from './components/collek/collek.component';
+import { SettingService } from './services/settings-service.service';
+import { CommonModule } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 const appRoutes: Routes = [
   {path: '',
@@ -28,7 +34,8 @@ const appRoutes: Routes = [
   { path:'settings-page', component:SettingsPageComponent},
   { path: 'objet-page', component: ObjetPageComponent},
   { path: 'lieu-page', component: LieuPageComponent},
-  { path: 'cap-page', component: CapPageComponent}
+  { path: 'cap-page', component: CapPageComponent},
+  { path: 'regle', component: RegleComponent },
 ];
 
 @NgModule({
@@ -42,19 +49,23 @@ const appRoutes: Routes = [
         ObjetPageComponent,
         LieuPageComponent,
         CapPageComponent,
+         RegleComponent,
         SidebarComponent
     ],
-    providers: [],
+    providers: [SettingService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         FormsModule,
+        CommonModule,
+        MatIconModule,
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes),
         LigneDeReponseModule,
         TabReponseComponent,
         GreensquareComponent,
-        CollekComponent
+        CollekComponent,
+        MatButtonModule
     ]
 })
 export class AppModule { }

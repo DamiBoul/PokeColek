@@ -137,6 +137,7 @@ export class PremierePageComponent implements OnInit{
 
       p.talent = listTalents;
 
+
       /*Vérification Pokémon déjà présent
       On ne vérifie pas l'indice 0 car c'est le Pokémon à devinir, il faut pouvoir le rentrer*/
       var i ;
@@ -166,6 +167,7 @@ export class PremierePageComponent implements OnInit{
 
     console.log(this.nbGuess, this.toFind, this.gagne, this.perdu);
   }
+
 
   /*Génère un Pokémon à trouver*/
   async generatePkmnToFind(): Promise<Pokemon>{
@@ -219,56 +221,91 @@ export class PremierePageComponent implements OnInit{
             if(element.language.name == "fr"){
                 stringTypes = stringTypes.concat(element.name, " ");
                 listTypes.push(element.name);
+
               }
+          });
+      }
+  
+      /*Ajout du Pokémon dans la base de données*/
+      p.id = pokemon.id;
+      p.name = fr;
+      p.image = pokemon.sprites.front_default;
+      p.type1 = listTypes[0];
+      if(listTypes.length>0){
+        p.type2 = listTypes[1];
+      }
+      else{
+        p.type2 = "null";
+      }
+  
+      response = await fetch(espece.generation.url);
+      let generation = await response.json();
+  
+      p.gen = generation.id;
+  
+      //Stade d'évolution
+      response = await fetch(espece.evolution_chain.url);
+      let ligneEvo = await response.json();
+  
+      var chaineEvo = ligneEvo.chain;
+      
+      p.stade = 0;
+  
+      if(chaineEvo.species.name == espece.name){
+        p.stade = 1;
+      }
+      else{
+        var listeEvo = chaineEvo.evolves_to;
+        var listeEvo2: any[] = [];
+        listeEvo.forEach((element: { evolves_to: any; }) =>{
+          listeEvo2.concat(element.evolves_to);
         });
-    }
-
-    //Variable pour stocker tous les talents du pokemon
-    var stringTalents = "";
-    var listTalents: Array<string> = [];
-
-    //Pour chaque talent du pokemon
-    for(let a of pokemon.abilities){
-        //Récupération du json du talent
-        response = await fetch(a.ability.url);
-        yes = await response.json();
-
-        //Recherche du talent en français et concaténation dans la variable de stockage
-        yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
-            if(element.language.name == "fr"){
-                stringTalents = stringTalents.concat(element.name, " ");
-                listTalents.push(element.name);
-            }
+  
+        listeEvo.forEach((element: { species: { name: any; }; }) =>{
+            if(element.species.name == espece.name) p.stade = 2;
         });
+        listeEvo2.forEach((element) =>{
+          console.log(element);
+          if(element.species.name == espece.name) p.stade = 3;
+        });
+  
+      }
+  
+      if(p.stade == 0){
+        p.stade = 3;
+      }
+      //------
+  
+      p.taille = parseFloat((pokemon.height * 0.1).toFixed(2)) ;
+      p.poids = parseFloat((pokemon.weight * 0.1).toFixed(2)) ;
+  
+      p.talent = listTalents;
+  
+      POKEMONS.unshift(p);
+      this.toFind = p.name ;
+  
+      // Enregistrer le nouveau Pokémon quotidien dans le localStorage
+      localStorage.setItem('dailyPokemon', JSON.stringify(p));
+  
+      return p;
     }
+  }
 
-    /*Ajout du Pokémon dans la base de données*/
-    p.id = pokemon.id;
-    p.name = fr;
-    p.image = pokemon.sprites.front_default;
-    p.type1 = listTypes[0];
-    if(listTypes.length>0){
-      p.type2 = listTypes[1];
-    }
-    else{
-      p.type2 = "null";
-    }
+  
+  /*A l'initialisation, on génère un pokemon*/
+  ngOnInit(): void{
+    this.initializeGame();
 
-    response = await fetch(espece.generation.url);
-    let generation = await response.json();
+  }
+  async initializeGame(): Promise<void> {
+    // Récupérer le Pokémon quotidien depuis le service ApiService
+    const dailyPokemon = await this.apiService.getDailyPokemon().toPromise();
 
-    p.gen = generation.id;
-
-    //Stade d'évolution
-    response = await fetch(espece.evolution_chain.url);
-    let ligneEvo = await response.json();
-
-    var chaineEvo = ligneEvo.chain;
-    
-    p.stade = 0;
-
-    if(chaineEvo.species.name == espece.name){
-      p.stade = 1;
+    // Vérifier si le Pokémon quotidien est déjà présent dans le localStorage
+    const storedPokemon = localStorage.getItem('dailyPokemon');
+    if (!storedPokemon) {
+      // Si ce n'est pas le cas, sauvegarder le Pokémon dans le localStorage
+      localStorage.setItem('dailyPokemon', JSON.stringify(dailyPokemon));
     }
     else{
       var listeEvo = chaineEvo.evolves_to;
@@ -285,10 +322,18 @@ export class PremierePageComponent implements OnInit{
         if(element.species.name == espece.name) p.stade = 3;
       });
 
+    // Initialiser le nombre de tentatives
+    const storedGuesses = localStorage.getItem('nbGuess');
+    if (!storedGuesses) {
+      // Si le nombre de tentatives n'est pas présent dans le localStorage, l'initialiser à 0
+      localStorage.setItem('nbGuess', '0');
     }
 
-    if(p.stade == 0){
-      p.stade = 3;
+    // Initialiser la liste des Pokémon déjà devinés
+    const storedGuessedPokemon = localStorage.getItem('guessedPokemon');
+    if (!storedGuessedPokemon) {
+      // Si la liste des Pokémon déjà devinés n'est pas présente dans le localStorage, l'initialiser à un tableau vide
+      localStorage.setItem('guessedPokemon', JSON.stringify([]));
     }
     //------
 
