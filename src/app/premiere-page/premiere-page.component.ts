@@ -378,6 +378,10 @@ export class PremierePageComponent implements OnInit{
   /*A l'initialisation, on génère un pokemon*/
   ngOnInit(): void{
       this.generatePkmnToFind();
+      for (let i = POKEMONS.length; i > 0; i--) {
+        POKEMONS.pop();
+      }
+      console.log(POKEMONS);
   }
 
 
