@@ -1,0 +1,14 @@
+table {
+    background-color: #E94B4D;
+    color: #191919;
+    position: absolute;
+    top: 40px; right: 40px;
+    border: dashed 1px #FFDF81;
+}
+
+th {
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}

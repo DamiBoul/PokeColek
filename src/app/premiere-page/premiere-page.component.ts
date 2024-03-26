@@ -194,9 +194,11 @@ export class PremierePageComponent implements OnInit{
     //Sélection d'un pokemon aléatoire
     let pokemon;
 
-    do{
+    /*do{
       pokemon = res.results[Math.floor(Math.random() * res.results.length)];
-    }while(!this.pkmnIsInteresting(pokemon));
+    }while(!this.pkmnIsInteresting(pokemon));*/
+
+    pokemon = res.results[13];
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
