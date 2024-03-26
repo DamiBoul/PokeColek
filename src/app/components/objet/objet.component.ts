@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ElementCollek } from '../element-collek/element-collek.component';
-import { Pokemon } from '../pokemon/pokemon.component';
 
 @Component({
   selector: 'app-objet',
