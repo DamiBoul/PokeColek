@@ -17,5 +17,5 @@ export class Objet extends ElementCollek{
   flingpower !: number ; //Pouvoir avec dégommage
   holdable !: boolean ; //Peut être tenu par un pkmn
   categorie !: string ; //Type d'objet : standard-ball, special-ball, etc.
-  hold_by !: Array<String> ; //Nom des pokémons qui tiennent l'objet naturellement
+  hold_by !: boolean ; //Nom des pokémons qui tiennent l'objet naturellement
 }
