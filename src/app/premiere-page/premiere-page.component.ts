@@ -163,8 +163,10 @@ export class PremierePageComponent implements OnInit{
       /*Si le Pokémon n'a pas été trouvé, on l'ajoute au json et à la liste d'id*/
       if (nc == false){
         POKEMONS.push(p);
-        this.listeId.unshift(String(POKEMONS.length));
         this.nbGuess ++ ;
+      }
+      if (! this.listeId.includes(String(POKEMONS.length))){
+        this.listeId.unshift(String(POKEMONS.length));
       }
 
       if (p.name == POKEMONS[0].name){
@@ -177,7 +179,7 @@ export class PremierePageComponent implements OnInit{
       }
     }
 
-    console.log(this.nbGuess, this.toFind, this.gagne, this.perdu);
+    console.log(this.nbGuess, this.listeId, this.gagne, this.perdu);
   }
 
   /*Génère un Pokémon à trouver*/
