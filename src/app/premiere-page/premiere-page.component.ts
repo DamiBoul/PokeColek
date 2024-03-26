@@ -19,13 +19,23 @@ export class PremierePageComponent implements OnInit{
   gagne: boolean = false ;
   perdu: boolean = false ;
   listeId: Array<String> = []; //Liste des pokémons déjà envoyés par l'utilisateur.
-  tradu: Array<Traduction> = [];
 
   /*Cherche un Pokémon dans l'API*/
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     if (!this.gagne && !this.perdu){
-    
-      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
+
+      let t = 0 ;
+      for (t = 0 ; t < TRADUCTION.length ; t++){
+        if (TRADUCTION[t].name.toLowerCase() == name.toLowerCase() || TRADUCTION[t].id == parseInt(name)){
+          break;
+        }
+        if (t == TRADUCTION.length - 1){
+          return ;
+        }
+      }
+      t = t+1 ;
+      
+      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+t); // fetch(requete) permet d'appeler l'api
       let pokemon = await response.json(); // variable.json() met la requete au format 
 
       response = await fetch(pokemon.species.url);
@@ -162,7 +172,7 @@ export class PremierePageComponent implements OnInit{
       }
 
       //Au bout du 7e essai, on perd.
-      if (this.nbGuess == 7){
+      if (this.nbGuess == 7 && this.gagne == false){
         this.perdu = true ;
       }
     }
@@ -367,6 +377,7 @@ export class PremierePageComponent implements OnInit{
   }
 
 
+  //NE PAS UTILISER, PRODUIT RADIOACTIF !!
   async trad(): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     let x : number ;
 
