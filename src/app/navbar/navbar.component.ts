@@ -30,8 +30,8 @@ export class NavbarComponent {
       label: 'Login',
       icon: 'work',
       link: 'login',
-      index: 1
-    }
+      index: 3
+    },
   ];
 
   isExpanded: boolean = false;

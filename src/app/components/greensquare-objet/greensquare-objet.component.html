@@ -45,18 +45,28 @@
 
                 <div [ngSwitch]="couleur">
                     <div *ngSwitchCase="'vert'">
-                        <th class= green-square>{{obj.flingpower}}</th>
+                        <th class= green-square>
+                            <div *ngIf="obj.flingpower == null ; else nonnul">
+                                <p>0</p>
+                            </div>
+                            <ng-template #nonnul>{{obj.flingpower}}</ng-template>
+                        </th>
                     </div>
                     <div *ngSwitchCase="'rouge'">
-                        <th class= red-square>{{obj.flingpower}}
-                        <div [ngSwitch]="valeurSupInf">
-                            <div *ngSwitchCase="'+'">
-                                <p>↑</p>
+                        <th class= red-square>
+                            <div *ngIf="obj.flingpower == null ; else nonnul">
+                                <p>0</p>
                             </div>
-                            <div *ngSwitchCase="'-'">
-                                <p>↓</p>
+                            <ng-template #nonnul>{{obj.flingpower}}</ng-template>
+                            <div [ngSwitch]="valeurSupInf">
+                                <div *ngSwitchCase="'+'">
+                                    <p>↑</p>
+                                </div>
+                                <div *ngSwitchCase="'-'">
+                                    <p>↓</p>
+                                </div>
                             </div>
-                        </div></th>
+                        </th>
                     </div>
                     <div *ngSwitchCaseDefault>erreur affichage carré</div>
                 </div>
@@ -98,13 +108,10 @@
 
                 <div [ngSwitch]="couleur">
                         <div *ngSwitchCase="'vert'">
-                            <th class= green-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
-                        </div>
-                        <div *ngSwitchCase="'orange'">
-                            <th class= orange-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
+                            <th class= green-square>{{obj.hold_by}}</th>
                         </div>
                         <div *ngSwitchCase="'rouge'">
-                            <th class= red-square><ul *ngFor = "let p of obj.hold_by">{{p}}</ul></th>
+                            <th class= red-square>{{obj.hold_by}}</th>
                         </div>
                         <div *ngSwitchCaseDefault>erreur affichage carré</div>
                 

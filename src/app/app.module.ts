@@ -17,6 +17,8 @@ import { LieuPageComponent } from './lieu-page/lieu-page.component';
 import { CapPageComponent } from './cap-page/cap-page.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CollekComponent } from './components/collek/collek.component';
+import { ReglePageComponent } from './regle-page/regle-page.component';
+import { BoutonregleComponent } from './components/boutonregle/boutonregle.component';
 
 const appRoutes: Routes = [
   {path: '',
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
   { path:'settings-page', component:SettingsPageComponent},
   { path: 'objet-page', component: ObjetPageComponent},
   { path: 'lieu-page', component: LieuPageComponent},
-  { path: 'cap-page', component: CapPageComponent}
+  { path: 'cap-page', component: CapPageComponent},
+  { path: 'regle', component: ReglePageComponent }
 ];
 
 @NgModule({
@@ -42,7 +45,8 @@ const appRoutes: Routes = [
         ObjetPageComponent,
         LieuPageComponent,
         CapPageComponent,
-        SidebarComponent
+        SidebarComponent,
+        ReglePageComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -54,7 +58,8 @@ const appRoutes: Routes = [
         LigneDeReponseModule,
         TabReponseComponent,
         GreensquareComponent,
-        CollekComponent
+        CollekComponent,
+        BoutonregleComponent
     ]
 })
 export class AppModule { }

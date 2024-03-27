@@ -5,7 +5,7 @@ import { CAPS } from '../components/mock-pokemon/mock-cap';
 @Component({
   selector: 'app-cap-page',
   templateUrl: './cap-page.component.html',
-  styleUrl: './cap-page.component.css'
+  styleUrl: '../premiere-page/premiere-page.component.css'
 })
 export class CapPageComponent {
 

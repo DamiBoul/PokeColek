@@ -52,9 +52,9 @@ export class ObjetPageComponent {
 
       p.categorie = objet.category.name ;
 
-      p.hold_by = [] ;
+      p.hold_by = false ;
       objet.held_by_pokemon.forEach((element: { pokemon: { name: string; }; name: any; }) =>{
-        p.hold_by.push(element.pokemon.name);
+        p.hold_by = true ;
       });
       console.log(p.hold_by);
 
@@ -126,9 +126,9 @@ export class ObjetPageComponent {
     p.name = fr;
     p.image = objet.sprites.default;
 
-    p.hold_by = [] ;
+    p.hold_by = false ;
     objet.held_by_pokemon.forEach((element: { language: { name: string; }; name: any; }) =>{
-      p.hold_by.push(element.name);
+      p.hold_by = true ;
     });
 
     p.cost = objet.cost ;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../components/pokemon/pokemon.component';
 import { POKEMONS } from '../components/mock-pokemon/mock-pokemon';
+import { Traduction } from '../components/mock-pokemon/traduction/traduction.component';
+import { TRADUCTION } from '../components/mock-pokemon/mock-traduction-pkmn';
 
 @Component({
   selector: 'app-premiere-page',
@@ -21,8 +23,19 @@ export class PremierePageComponent implements OnInit{
   /*Cherche un Pokémon dans l'API*/
   async search(name: string): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
     if (!this.gagne && !this.perdu){
-    
-      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+name); // fetch(requete) permet d'appeler l'api
+
+      let t = 0 ;
+      for (t = 0 ; t < TRADUCTION.length ; t++){
+        if (TRADUCTION[t].name.toLowerCase() == name.toLowerCase() || TRADUCTION[t].id == parseInt(name)){
+          break;
+        }
+        if (t == TRADUCTION.length - 1){
+          return ;
+        }
+      }
+      t = t+1 ;
+      
+      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+t); // fetch(requete) permet d'appeler l'api
       let pokemon = await response.json(); // variable.json() met la requete au format 
 
       response = await fetch(pokemon.species.url);
@@ -150,8 +163,10 @@ export class PremierePageComponent implements OnInit{
       /*Si le Pokémon n'a pas été trouvé, on l'ajoute au json et à la liste d'id*/
       if (nc == false){
         POKEMONS.push(p);
-        this.listeId.unshift(String(POKEMONS.length));
         this.nbGuess ++ ;
+      }
+      if (! this.listeId.includes(String(POKEMONS.length))){
+        this.listeId.unshift(String(POKEMONS.length));
       }
 
       if (p.name == POKEMONS[0].name){
@@ -159,12 +174,12 @@ export class PremierePageComponent implements OnInit{
       }
 
       //Au bout du 7e essai, on perd.
-      if (this.nbGuess == 7){
+      if (this.nbGuess == 7 && this.gagne == false){
         this.perdu = true ;
       }
     }
 
-    console.log(this.nbGuess, this.toFind, this.gagne, this.perdu);
+    console.log(this.nbGuess, this.listeId, this.gagne, this.perdu);
   }
 
   /*Génère un Pokémon à trouver*/
@@ -181,9 +196,11 @@ export class PremierePageComponent implements OnInit{
     //Sélection d'un pokemon aléatoire
     let pokemon;
 
-    do{
+    /*do{
       pokemon = res.results[Math.floor(Math.random() * res.results.length)];
-    }while(!this.pkmnIsInteresting(pokemon));
+    }while(!this.pkmnIsInteresting(pokemon));*/
+
+    pokemon = res.results[13];
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
@@ -361,6 +378,42 @@ export class PremierePageComponent implements OnInit{
   /*A l'initialisation, on génère un pokemon*/
   ngOnInit(): void{
       this.generatePkmnToFind();
+      for (let i = POKEMONS.length; i > 0; i--) {
+        POKEMONS.pop();
+      }
+      console.log(POKEMONS);
+  }
+
+
+  //NE PAS UTILISER, PRODUIT RADIOACTIF !!
+  async trad(): Promise<void> { // Fonction async pour pouvoir gérer l'attente des appels
+    let x : number ;
+
+    for (x = 1 ; x <= 1025 ; x ++){
+
+      let response = await fetch("https://pokeapi.co/api/v2/pokemon/"+x); // fetch(requete) permet d'appeler l'api
+      let pokemon = await response.json(); // variable.json() met la requete au format 
+
+      response = await fetch(pokemon.species.url);
+      let espece = await response.json();
+
+      //Variable pour stocker le nom français du pokemon
+      var fr: string;
+      fr = "";
+
+      //Recherche du nom français du pokemon parmis toutes les langues
+      espece.names.forEach((element: { language: { name: string; }; name: any; }) =>{
+          if(element.language.name == "fr")
+              fr = element.name;
+      });
+
+      //ajout du pokémon dans la liste pour affichage
+      let p = new Traduction();
+      p.id = pokemon.id;
+      p.name = fr;
+
+      TRADUCTION.push(p);
+    }
   }
 
 }

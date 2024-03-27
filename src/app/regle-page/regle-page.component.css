@@ -1,0 +1,44 @@
+p, li, th {
+    color: #FFDF81; /* Utilisation de la variable de couleur */
+    text-align: justify;
+}
+
+h1, h2, h3 {
+    color: #FF9557 ;
+}
+
+h1{
+    text-align: center;
+}
+
+.content{
+    width:1000px;
+}
+
+.vert, .rouge, .orange{
+    font-weight: bold;
+}
+
+.vert {
+    color: #9fda96;
+}
+
+.rouge{
+    color: #E94B4D;
+}
+
+.orange{
+    color: #FF9557;
+}
+
+img{
+    max-width: 200px;
+    
+}
+
+th {
+    padding: 1em;
+    text-align: center;
+    font-weight: normal;
+    border: solid 1px #FFDF81;
+}
