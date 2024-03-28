@@ -196,11 +196,11 @@ export class PremierePageComponent implements OnInit{
     //Sélection d'un pokemon aléatoire
     let pokemon;
 
-    /*do{
+    do{
       pokemon = res.results[Math.floor(Math.random() * res.results.length)];
-    }while(!this.pkmnIsInteresting(pokemon));*/
+    }while(!this.pkmnIsInteresting(pokemon));
 
-    pokemon = res.results[13];
+    //pokemon = res.results[13];
 
     //Récupération du json de ce pokemon
     response = await fetch(pokemon.url);
@@ -332,47 +332,6 @@ export class PremierePageComponent implements OnInit{
             !nom.includes("-hisui") && 
             !nom.includes("-paldea") &&
             !nom.includes("-primal"));
-  }
-
-  /*Méthode pour remplir un json avec la correspondance des noms anglais et français - non fonctionnelle pour l'instant*/
-  async putInJson(request: any): Promise<void>{
-    let obj = {
-      date: Date.now(), 
-      pokemons: [{}]
-    };
-
-    let response;
-    let poke;
-    let espece;
-
-    let nomFr : any;
-    let nomEn : any;
-
-    request.results.forEach(async (element: {name: any, url: any}) =>{
-      if(this.pkmnIsInteresting(element)){
-        response = await fetch(element.url);
-        poke = await response.json();
-
-        response = await fetch(poke.species.url);
-        espece = await response.json();
-
-        espece.names.forEach(function(nom: any){
-          if(nom.language.name == "fr")
-            nomFr = nom.name;
-          if(nom.language.name == "en")
-            nomEn = nom.name;
-        });
-
-        obj.pokemons.push({fr: nomFr, en: nomEn});
-      }
-    });
-    obj.date = Date.now();
-
-    let json = JSON.stringify(obj);
-
-    let fs = require('fs');
-
-    fs.writeFile('../components/mock-pokemon/pkmn-en-fr.json', json, 'utf8');
   }
 
   /*A l'initialisation, on génère un pokemon*/
