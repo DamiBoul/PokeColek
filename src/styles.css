@@ -9,7 +9,8 @@
 
 /* Autres styles globaux */
 body {
-  background-color: var(--body-background-color);
+  background-image: url('/assets/Fond_191919.png');
+  background-size: contain;
   color: var(--text-color);
 }
 

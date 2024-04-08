@@ -44,7 +44,19 @@ export class CapPageComponent {
       p.image = "";
 
       //type de la capacité
-      p.type = cap.type.name ;
+      let yes ;
+      
+      response = await fetch(cap.type.url);
+      yes = await response.json();
+
+      //Recherche du type en français et concaténation dans la variable de stockage
+      yes.names.forEach((element: { language: { name: string; }; name: string; }) =>{
+          if(element.language.name == "fr"){
+            p.type = element.name ;
+            }
+      });
+
+      
 
 
       //categorie de la capacité

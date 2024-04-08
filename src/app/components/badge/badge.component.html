@@ -1,111 +1,111 @@
 
 
 <div [ngSwitch]="type">
-    <div *ngSwitchCase="'Spectre'">
+    <div *ngSwitchCase="'Spectre' || 'ghost'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-spectre-emphasis bg-spectre-subtle border border-spectre-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/spectre.png" alt="">Spectre
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/spectre.png" alt="">Spectre
         </span>
     </div>
 
-    <div *ngSwitchCase="'Acier'">
+    <div *ngSwitchCase="'Acier' || 'steel'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-acier-emphasis bg-acier-subtle border border-acier-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/acier.png" alt="">Acier
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/acier.png" alt="">Acier
         </span>
     </div>
 
-    <div *ngSwitchCase="'Poison'">
+    <div *ngSwitchCase="'Poison' || 'poison'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-poison-emphasis bg-poison-subtle border border-poison-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/poison.png" alt="">Poison
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/poison.png" alt="">Poison
         </span>
     </div>
 
-    <div *ngSwitchCase="'Feu'">
+    <div *ngSwitchCase="'Feu' || 'fire'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-feu-emphasis bg-feu-subtle border border-feu-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/feu.png" alt="">Feu
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/feu.png" alt="">Feu
         </span>
     </div>
 
-    <div *ngSwitchCase="'Eau'">
+    <div *ngSwitchCase="'Eau' || 'water'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-eau-emphasis bg-eau-subtle border border-eau-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/eau.png" alt="">Eau
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/eau.png" alt="">Eau
         </span>
     </div>
 
-    <div *ngSwitchCase="'Plante'">
+    <div *ngSwitchCase="'Plante' || 'grass'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-plante-emphasis bg-plante-subtle border border-plante-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/plante.png" alt="">Plante
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/plante.png" alt="">Plante
         </span>
     </div>
 
-    <div *ngSwitchCase="'Électrik'">
+    <div *ngSwitchCase="'Électrik' || 'electric'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-electrik-emphasis bg-electrik-subtle border border-electrik-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/electrik.png" alt="">Électrik
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/electrik.png" alt="">Électrik
         </span>
     </div>
 
-    <div *ngSwitchCase="'Normal'">
+    <div *ngSwitchCase="'Normal' || 'normal'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-normal-emphasis bg-normal-subtle border border-normal-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/normal.png" alt="">Normal
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/normal.png" alt="">Normal
         </span>
     </div>
 
-    <div *ngSwitchCase="'Combat'">
+    <div *ngSwitchCase="'Combat' || 'fighting'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-combat-emphasis bg-combat-subtle border border-combat-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/combat.png" alt="">Combat
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/combat.png" alt="">Combat
         </span>
     </div>
 
-    <div *ngSwitchCase="'Psy'">
+    <div *ngSwitchCase="'Psy' || 'psychic'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-psy-emphasis bg-psy-subtle border border-psy-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/psy.png" alt="">Psy
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/psy.png" alt="">Psy
         </span>
     </div>
 
-    <div *ngSwitchCase="'Roche'">
+    <div *ngSwitchCase="'Roche' || 'rock'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-roche-emphasis bg-roche-subtle border border-roche-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/roche.png" alt="">Roche
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/roche.png" alt="">Roche
         </span>
     </div>
 
-    <div *ngSwitchCase="'Sol'">
+    <div *ngSwitchCase="'Sol' || 'ground'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-sol-emphasis bg-sol-subtle border border-sol-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/sol.png" alt="">Sol
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/sol.png" alt="">Sol
         </span>
     </div>
 
-    <div *ngSwitchCase="'Ténèbres'">
+    <div *ngSwitchCase="'Ténèbres' || 'dark'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-tenebres-emphasis bg-tenebres-subtle border border-tenebres-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/tenebres.png" alt="">Ténèbres
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/tenebres.png" alt="">Ténèbres
         </span>
     </div>
 
-    <div *ngSwitchCase="'Glace'">
+    <div *ngSwitchCase="'Glace' || 'ice'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-glace-emphasis bg-glace-subtle border border-glace-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/glace.png" alt="">Glace
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/glace.png" alt="">Glace
         </span>
     </div>
 
-    <div *ngSwitchCase="'Insecte'">
+    <div *ngSwitchCase="'Insecte' || 'bug'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-insecte-emphasis bg-insecte-subtle border border-insecte-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/insecte.png" alt="">Insecte
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/insecte.png" alt="">Insecte
         </span>
     </div>
 
-    <div *ngSwitchCase="'Vol'">
+    <div *ngSwitchCase="'Vol' || 'flying'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-vol-emphasis bg-vol-subtle border border-vol-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/vol.png" alt="">Vol
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/vol.png" alt="">Vol
         </span>
     </div>
 
-    <div *ngSwitchCase="'Dragon'">
+    <div *ngSwitchCase="'Dragon' || 'dragon'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-dragon-emphasis bg-dragon-subtle border border-dragon-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/dragon.png" alt="">Dragon
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/dragon.png" alt="">Dragon
         </span>
     </div>
 
-    <div *ngSwitchCase="'Fée'">
+    <div *ngSwitchCase="'Fée' || 'fairy'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-fee-emphasis bg-fee-subtle border border-fee-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/fee.png" alt="">Fée
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/fee.png" alt="">Fée
         </span>
     </div>
 
@@ -141,19 +141,19 @@
 
   <div *ngSwitchCase="'physical'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-physique-emphasis bg-physique-subtle border border-physique-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/physique.png" alt="">Physique
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/physique.png" alt="">Physique
         </span>
   </div>
 
   <div *ngSwitchCase="'special'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-special-emphasis bg-special-subtle border border-special-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/special.png" alt="">Special
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/special.png" alt="">Special
         </span>
   </div>
 
   <div *ngSwitchCase="'status'">
         <span class="badge d-flex align-items-center p-1 pe-2 text-statut-emphasis bg-statut-subtle border border-statut-subtle rounded-pill">
-            <img class="rounded-circle me-1" width="24" height="24" src="../assets/statut.png" alt="">Statut
+            <img class="rounded-circle me-1" width="24" height="24" src="assets/statut.png" alt="">Statut
         </span>
   </div>
 
